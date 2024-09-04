@@ -4,5 +4,10 @@
   },
   "scripts": {
     "dev": "npx tailwindcss -i frontend/src/input.css -o frontend/src/output.css --watch"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.44",
+    "tailwindcss-textshadow": "^2.1.3"
   }
 }

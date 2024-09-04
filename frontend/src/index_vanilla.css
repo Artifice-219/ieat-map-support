@@ -1,0 +1,271 @@
+        /* Ensure Tailwind CSS is included */
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Manrope:wght@200..800&display=swap');
+        
+        /* Custom Styles */
+        body {
+            background-image: url('/frontend/assets/images/map3.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .navItem {
+            font-family: "Fredoka", cursive;
+            font-weight: 600;
+            font-style: normal;
+            font-size: 35pt;
+        }
+
+        .navOption {
+            font-family: "Poppins";
+        }
+
+        .description {
+            font-family: "Fredoka", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-size: 28pt;
+            font-style: normal;
+            line-height: 1;
+           
+        }
+
+        .bottomDesc,.features {
+            font-family: "Manrope";
+            font-weight: 600;
+        }
+        
+        
+    
+
+        /* Custom Media Queries */
+
+          /* 320px and 425px */
+          @media (min-width: 320px) and (max-width: 425px){
+            .navItem {
+                font-size: 15pt;
+            }
+            .navBar {
+                height: 60px;
+                width: 100%;
+                padding-top: 10px;
+            }
+            .navOption{
+                margin-left: 200px;
+            }
+            #burgerButton {
+                margin-right: 20px;
+                display: block;
+            }
+            .desktopMenu {
+                display: none;
+            }
+            .description {
+            font-family: "Fredoka", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-size: 16pt;
+            font-style: normal;
+            line-height: 1;
+            margin-top: 14rem;
+            }
+            .bottomDesc,.features {
+            font-family: "Manrope";
+            font-weight: 600;
+             }
+             body {
+            background-image: url('/frontend/assets/images/mapMDsmall.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -100;
+             }
+             .site-content{
+                margin-left: 1rem;
+                width: 18rem;
+             }
+             .buttons{
+                margin-left: 1.5rem;
+             }
+         
+
+        }
+
+        
+
+        @media (min-width: 375px) and (max-width: 425px){
+            .navItem {
+                font-size: 20pt;
+            }
+            .navBar {
+                height: 60px;
+                width: 100%;
+                padding-top: 10px;
+            }
+            .navOption{
+                margin-left: 255px;
+            }
+            #burgerButton {
+                margin-right: 20px;
+                display: block;
+            }
+            .desktopMenu {
+                display: none;
+            }
+            .description {
+            font-family: "Fredoka", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-size: 16pt;
+            font-style: normal;
+            line-height: 1;
+            margin-top: 5rem;
+            }
+            .bottomDesc,.features {
+            font-family: "Manrope";
+            font-weight: 600;
+             }
+             body {
+            background-image: url('/frontend/assets/images/mapMD.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -100;
+             }
+             .site-content{
+                margin-left: 2rem;
+                margin-top: -1rem;
+                width: 20rem;
+             }
+             .buttons{
+                margin-left: 1.5rem;
+             }
+        }
+
+        @media (min-width: 425px) {
+            #burgerButton {
+                display: block;
+            }
+        }
+
+        
+
+       /*  425px and 767px  */
+        @media (min-width: 425px) and (max-width: 767px) {
+            .navItem {
+                font-size: 20pt;
+            }
+            .navBar {
+                height: 60px;
+                width: 100%;
+                padding-top: 10px;
+            }
+            .navOption{
+                margin-left: 305px;
+            }
+            .description {
+                font-family: "Fredoka", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 600;
+                font-size: 16pt;
+                font-style: normal;
+                line-height: 1;
+                margin-top: 5rem;
+            }
+            #burgerButton {
+                margin-right: 20px;
+                display: block;
+            }
+            .desktopMenu {
+                display: none;
+            }
+            .bottomDesc, .features {
+                font-family: "Manrope";
+                font-weight: 600;
+            }
+            body {
+                background-image: url('/frontend/assets/images/mapMD.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                z-index: -100;
+            }
+            .site-content {
+                margin-left: 3.5rem;
+                margin-top: -1rem;
+                width: 20rem;
+            }
+            .buttons {
+                margin-left: 1.5rem;
+            }
+        }
+
+        /* 768px and 1024px*/
+        @media (min-width: 768px) and (max-width: 1024px) {
+            body {
+                background-image: url('/frontend/assets/images/mapTablet.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .navItem {
+                font-family: "Fredoka", cursive;
+                font-weight: 600;
+                font-style: normal;
+                font-size: 35pt;
+            }
+
+            .navOption {
+                font-family: "Poppins";
+            }
+
+            .description {
+                font-family: "Fredoka", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 600;
+                font-size: 20pt;
+                font-style: normal;
+                line-height: 1;
+            }
+
+            .bottomDesc, .features {
+                font-family: "Manrope";
+                font-weight: 600;
+            }
+
+            .site-content {
+                margin-left: 2rem;
+                margin-top: -11rem;
+            }
+        }
+
+        /* Media Query for handling the burger button visibility */
+        @media (max-width: 767px) {
+            #burgerButton {
+                display: block;
+            }
+        }
+
+        @media (min-width: 768px) {
+            #burgerButton {
+                display: none;
+            }
+        }
+
+    
+        /* Dropdown menu initial state (hidden) */
+        #dropdownMenu {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* When the menu is active (visible) */
+         #dropdownMenu.active {
+        opacity: 1;
+        transform: translateY(0);
+        }

@@ -1,133 +1,100 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Campus Navigator Landing</title>
+    <link rel="icon" type="image/png" href="/frontend/assets/images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/frontend/src/output.css">
-</head>
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-    .navBar{
-        background-color: #4f0007;
+    <link rel="stylesheet" href="/frontend/src/index_vanilla.css">
+    
+    
        
-    }
-    html{
-        position: relative;
-        background-color: #ffffff;
-        background-image: url(/frontend/assets/images/map.png);
-        background-size: cover;
-        
-    }
-    .navItem{
-        font-family: "Permanent Marker", cursive;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 35pt;
-    }
-    .description{
-        font-family: "Inter", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 740;
-        font-size:  21pt;
-        font-style: normal;
-    }
-    .bottomDesc{
-        font-family: "poppins";
-        font-weight: 600;
-    }
-    
-    
+</head>
+<body class="bg-gray-100">
 
-</style>
-<body>
+    <!-- Navbar -->
+    <nav class="pl-10 mb-20 pt-7 bg-[#4f0007] sticky top-0 z-50 navBar mb-m:-pt-4 ">
+        <div class="relative flex items-center justify-between pb-8 pl-10 mb-s:pl-5">
+            <h1 class="text-3xl font-bold text-white navItem ">Campus Navigator</h1>
 
-    
-     <!-- navbar -->
-      <nav class="pl-10 mb-20 pt-7 h-1/9 pt-auto navBar" >
-        
-        <div class="flex items-center justify-between pb-8 pl-10">
-            
-                <h1 class="text-3xl text-white gray-100 drop-shadow-l navItem"> Campus Navigator </h1>
+            <!-- Burger Button (Visible at mobile Devices) -->
+            <button id="burgerButton" class="focus:outline-none">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
 
-                <ul class="flex pr-10 space-x-3 text-gray-100 font- drop-shadow-lg ">
-                    <li class="pr-10"><a href="#"  class="max-w-4xl px-4 py-2 duration-100 ease-in-out border-white hover:border-b-2">About</a></li>
-                    <li class="pr-10"><a href="#"  class="max-w-4xl px-4 py-2 duration-100 ease-in-out border-white hover:border-b-2">Help</a></li>
-                    <li class="pr-10"><a href="#" class="max-w-4xl px-4 py-2 duration-100 ease-in-out border-white hover:border-b-2" >Faqs</a></li>
-                </ul>
+            <!-- Desktop Menu -->
+            <ul class="flex pr-10 text-gray-100 space-x- drop-shadow-lg navOption desktopMenu">
+                <li class="pr-10"><a href="#" class="max-w-4xl px-4 py-2 duration-100 ease-in-out border-white rounded-xl hover:border-b-2">About</a></li>
+                <li class="pr-10"><a href="#" class="max-w-4xl px-4 py-2 duration-100 ease-in-out border-white rounded-xl hover:border-b-2">Help</a></li>
+                <li class="pr-10"><a href="#" class="max-w-4xl px-4 py-2 duration-100 ease-in-out border-white rounded-xl hover:border-b-2">Faqs</a></li>
+            </ul>
         </div>
-      
-      </nav>
 
-      
-    
-    <main>
-        
-        <!-- Header Section -->
-        <div class="pt-20 mt-10 ml-20">
-            <div class="relative w-5/12 p-6 bg-white rounded-lg shadow-lg site-content">
-                <!-- Main Description -->
-                <p class="ml-20 font-semibold max-w-max description">
-                    Starting college is tough, but finding your way shouldn't be. Our platform helps you locate classrooms, connect with instructors, and manage your schedule with ease.
-                </p>
-    
-                <!-- Call to Action -->
-                <p class="ml-20 t-4 bottomDesc">
-                    Don't get lost—sign up now for a stress-free start to your first year!
-                </p>
-    
-                <!-- Sign Up Buttons -->
-                <div class="relative user-actions">
-                    <div class="flex gap-4 mt-6 ml-20">
-                        <a href="#" class="flex items-center justify-center w-40 h-10 text-white bg-red-800 rounded-xl">
-                            Sign Up
-                        </a>
-                        <a href="#" class="flex items-center justify-center w-40 h-10 text-white bg-red-800 rounded-xl">
-                            Log In
-                        </a>
-                    </div>
+        <!-- Dropdown Menu (hidden by default) -->
+        <div id="dropdownMenu" class="hidden absolute ml-64 -mt-5 w-fit space-y-2 text-white bg-[#65000b] navOption text-center" >
+            <a href="#" class="block px-4 py-2 hover:bg-[#4f0007]">About</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#4f0007]">Help</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#4f0007]">FAQs</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative flex flex-col items-center justify-center w-5/12 min-h-screen p-6 px-4 py-10 -mt-32 ml-36 site-content mb-m:pt-0 mb-m:pb-0 ">
+
+        <div>
+            <!-- Main Description -->
+            <p class="font-semibold max-w-max description ">
+                Starting college is tough, but finding your way shouldn't be. Our platform helps you locate classrooms, connect with instructors, and manage your schedule with ease.
+            </p>
+
+            <!-- Spacer Element -->
+            <div class="h-5"></div>
+
+            <!-- Call to Action -->
+            <p class="mb-2 text-justify t-4 bottomDesc ">
+                Don't get lost—sign up now for a stress-free start to your first year!
+            </p>
+
+            <div class="flex flex-wrap gap-6 buttons">
+                <a href="#" class="bg-[#4f0007] text-white py-2 px-6 rounded-lg shadow-lg hover:bg-white hover:text-[#4f0007] transition hover:font-bold">Sign Up</a>
+                <a href="#" class="bg-[#4f0007] text-white py-2 px-6 rounded-lg shadow-lg hover:bg-white hover:text-[#4f0007] transition hover:font-bold">Log In</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-gray-100 py-72 mb-m:pt-0 bg-opacity-80 backdrop-blur-sm">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-Manrope text-[#4f0007] mb-8">Features</h2>
+            <div class="flex flex-wrap justify-center gap-6 features">
+                <div class="max-w-xs p-6 bg-white rounded-lg shadow-lg">
+                    <h3 class="text-xl font-Fredoka text-[#4f0007] mb-4">Room Finder</h3>
+                    <p class="text-gray-700">Quickly locate classrooms and buildings across campus with our interactive maps.</p>
+                </div>
+                <div class="max-w-xs p-6 bg-white rounded-lg shadow-lg">
+                    <h3 class="text-xl font-Fredoka text-[#4f0007] mb-4">Teacher Connect</h3>
+                    <p class="text-gray-700">Stay in touch with your instructors and get real-time updates on your schedule.</p>
+                </div>
+                <div class="max-w-xs p-6 bg-white rounded-lg shadow-lg">
+                    <h3 class="text-xl font-Fredoka text-[#4f0007] mb-4">Personalized Experience</h3>
+                    <p class="text-gray-700">Tailored to fit your specific course schedule and campus layout.</p>
                 </div>
             </div>
         </div>
-        
-    </main>
-    
+    </section>
 
-
-          
-            
-
-
-
-    <section>
-
-            <!-- middle section -->
-            
-            <!-- <div>
-                <h2>Features:</h2>
-                <ul>
-                    <li><strong>Room Finder:</strong> Input your schedule, and we'll guide you to each room on campus.</li>
-                    <li><strong>Teacher Connect:</strong> Stay in touch with your professors for extra help, feedback, or advice.</li>
-                    <li><strong>Personalized Experience:</strong> Tailored to fit your specific course schedule and campus layout.</li>
-                </ul>
-            </div> -->
-        
-    </section>     
-        
-   
-
-    <footer>
-        <div class="absolute inset-x-0 bottom-0 h-8 pt-1 text-center bg-red-900">
-
-            <p class="font-light text-white">&copy; 2024 Campus Navigator. All rights reserved.</p>
-        </div>
-            
-        
+    <!-- Footer -->
+    <footer class="bg-[#4f0007] text-white text-center py-2">
+        <p>&copy; 2024 Campus Navigator. All rights reserved.</p>
     </footer>
+
+    <script src="/frontend/src/javascript/index_js.js"></script>
 </body>
 </html>
