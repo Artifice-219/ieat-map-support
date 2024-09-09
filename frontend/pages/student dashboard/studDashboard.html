@@ -4,7 +4,9 @@ $student_data = [
     'student_number' => '202200169',
     'student_name' => 'John Phillip Lor',
     'student_email' => 'johnphilliplor.basc@gmail.com',
-    'profile_picture' => 'path_to_image.jpg',
+    // change this path to the actual image
+    // 'profile_picture' => 'path_to_image.jpg',
+    'profile_picture' => 'https://i.pinimg.com/564x/18/85/d2/1885d23e24a59e2af629a3e741f2fab6.jpg',
     'class_schedule' => [
         ['class' => 'IT305', 'room' => 'ITNB 103', 'date' => 'Mon, Sep 2', 'time' => '08:00 AM - 09:00 AM'],
         
@@ -143,7 +145,7 @@ $student_data = [
             <h3 class="mb-4 text-xl font-semibold">Campus Announcements</h3>
             <ul>
                 <?php foreach ($student_data['announcements'] as $announcement): ?>
-                <li class="mb-2"><?= htmlspecialchars($announcement) ?></li>
+                <li class="mb-2"><?= htmlspecialchars($announcement)?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
