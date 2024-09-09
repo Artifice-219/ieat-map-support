@@ -1,10 +1,27 @@
-const mongoose = require('mongoose');
+const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb+srv://jpmalbas4:Y6p3D3EqeGFPczdI@cluster0.7nsvk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri = "mongodb://localhost:27017";
 
-mongoose.connect(uri, {
-    useNewUrlParser : true,
-    useUnifiedTopology :  true
-})
-.then(() => console.log('mongoDB connected'))
-.catch(() => console.error('Connection error', err));
+const client = new MongoClient(uri);
+
+async function connect_to_db(){
+    try{
+        // connecting to server
+        await client.connect();
+        console.log('Successfully connected to MongoDb');
+
+        // returning db object
+        // this file will be exported
+        return client.db('myLocalDB');
+
+    }catch( error ){
+
+        console.error('Failed connection to mongoDB', error)
+        throw error;
+
+    }
+}
+
+// exporting this file
+module.exports = { connect_to_db };
+ 
