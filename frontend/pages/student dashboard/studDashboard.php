@@ -7,7 +7,7 @@ $student_data = [
     'profile_picture' => 'path_to_image.jpg',
     'class_schedule' => [
         ['class' => 'IT305', 'room' => 'ITNB 103', 'date' => 'Mon, Sep 2', 'time' => '08:00 AM - 09:00 AM'],
-        
+
     ],
     'notifications' => [
         'Reminder: Room ITNB 103 booked at 8:00 AM',
@@ -25,19 +25,21 @@ $student_data = [
 
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body style="background-color: #4f0007;">
 
     <!-- Welcome Message & Profile Summary -->
     <div class="container p-4 mx-auto">
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <div class="flex items-center space-x-4">
-                <?php if($student_data['profile_picture']): ?>
+                <?php if ($student_data['profile_picture']): ?>
                     <img src="<?= $student_data['profile_picture'] ?>" alt="Profile Picture" class="w-16 h-16 rounded-full">
                 <?php endif; ?>
                 <div>
@@ -55,9 +57,10 @@ $student_data = [
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <h3 class="mb-4 text-xl font-semibold">Room Finder</h3>
             <input type="text" class="w-full p-2 mb-4 border rounded" placeholder="Search for rooms or buildings...">
-            <div class="h-64 mb-4 bg-gray-300 map">
+            <div class="h-96 mb-4 bg-gray-300 map">
                 <!-- Interactive campus map should be embedded here -->
-                <p class="py-24 text-center">Interactive Campus Map</p>
+                <p class="text-center" style="position: relative;">Interactive Campus Map<iframe style="position: absolute; width: 100%; height: 340px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.4998337133607!2d120.95077826108097!3d15.075756365205669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33970309be916ca3%3A0xbcb6761ad07049e5!2sBulacan%20Agricultural%20State%20College%20Business%20Center!5e0!3m2!1sen!2sph!4v1725900214027!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+
             </div>
             <div>
                 <h4 class="text-lg font-semibold">Real-Time Room Availability</h4>
@@ -83,12 +86,12 @@ $student_data = [
                 </thead>
                 <tbody>
                     <?php foreach ($student_data['class_schedule'] as $class): ?>
-                    <tr>
-                        <td class="px-4 py-2 border"><?= htmlspecialchars($class['class']) ?></td>
-                        <td class="px-4 py-2 border"><?= htmlspecialchars($class['room']) ?></td>
-                        <td class="px-4 py-2 border"><?= htmlspecialchars($class['date']) ?></td>
-                        <td class="px-4 py-2 border"><?= htmlspecialchars($class['time']) ?></td>
-                    </tr>
+                        <tr>
+                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['class']) ?></td>
+                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['room']) ?></td>
+                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['date']) ?></td>
+                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['time']) ?></td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -102,7 +105,7 @@ $student_data = [
             <h3 class="mb-4 text-xl font-semibold">Notifications</h3>
             <ul>
                 <?php foreach ($student_data['notifications'] as $notification): ?>
-                <li class="mb-2"><?= htmlspecialchars($notification) ?></li>
+                    <li class="mb-2"><?= htmlspecialchars($notification) ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
@@ -143,11 +146,12 @@ $student_data = [
             <h3 class="mb-4 text-xl font-semibold">Campus Announcements</h3>
             <ul>
                 <?php foreach ($student_data['announcements'] as $announcement): ?>
-                <li class="mb-2"><?= htmlspecialchars($announcement) ?></li>
+                    <li class="mb-2"><?= htmlspecialchars($announcement) ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
     </div>
 
 </body>
+
 </html>
