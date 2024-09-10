@@ -1,17 +1,27 @@
-// JavaScript to toggle the dropdown menu
 const burgerButton = document.getElementById('burgerButton');
 const dropdownMenu = document.getElementById('dropdownMenu');
 
-burgerButton.addEventListener('click', () => {
+burgerButton.addEventListener('click', (event) => {
+    event.stopPropagation();
     if (dropdownMenu.classList.contains('hidden')) {
         dropdownMenu.classList.remove('hidden');
         setTimeout(() => {
             dropdownMenu.classList.add('active');
-        }, 10); // Slight delay to allow the transition to trigger
+        }, 10);
     } else {
-        dropdownMenu.classList.remove('active');
-        dropdownMenu.addEventListener('transitionend', () => {
-            dropdownMenu.classList.add('hidden');
-        }, { once: true });
+        closeDropdown();
     }
 });
+
+document.addEventListener('click', (event) => {
+    if (!dropdownMenu.contains(event.target) && !burgerButton.contains(event.target)) {
+        closeDropdown();
+    }
+});
+
+function closeDropdown() {
+    dropdownMenu.classList.remove('active');
+    dropdownMenu.addEventListener('transitionend', () => {
+        dropdownMenu.classList.add('hidden');
+    }, { once: true });
+}

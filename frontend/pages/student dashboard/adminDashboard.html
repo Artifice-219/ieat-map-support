@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Room Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans leading-normal tracking-normal bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="p-4 bg-gray-800">
+        <div class="container flex items-center justify-between mx-auto">
+            <a href="#" class="text-2xl font-bold text-white">Room Finder Dashboard</a>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-white">Dashboard</a></li>
+                <li><a href="#" class="text-white">Settings</a></li>
+                <li><a href="#" class="text-white">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container grid grid-cols-1 gap-6 mx-auto my-8 md:grid-cols-2 lg:grid-cols-4">
+        
+        <!-- Overview & System Status -->
+        <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-bold">System Status</h3>
+            <ul>
+                <li>Server Uptime: 99.99%</li>
+                <li>Active Sessions: 120</li>
+                <li>Total Bookings: 345</li>
+                <li>Available Rooms: 30</li>
+            </ul>
+        </div>
+
+        <!-- User Management -->
+        <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-bold">User Management</h3>
+            <ul>
+                <li><a href="#" class="text-blue-500">Add/Delete Users</a></li>
+                <li><a href="#" class="text-blue-500">Edit User Profiles</a></li>
+                <li><a href="#" class="text-blue-500">View User Activity Logs</a></li>
+            </ul>
+        </div>
+
+        <!-- Room Management -->
+        <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-bold">Room Management</h3>
+            <ul>
+                <li><a href="#" class="text-blue-500">Define Room Status</a></li>
+                <li><a href="#" class="text-blue-500">Room Booking Logs</a></li>
+                <li><a href="#" class="text-blue-500">Add/Remove Rooms</a></li>
+            </ul>
+        </div>
+
+        <!-- Schedule Management -->
+        <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-bold">Schedule Management</h3>
+            <ul>
+                <li><a href="#" class="text-blue-500">Instructor Schedules</a></li>
+                <li><a href="#" class="text-blue-500">Student Schedules</a></li>
+                <li><a href="#" class="text-blue-500">Override Scheduling</a></li>
+            </ul>
+        </div>
+
+        <!-- System Logs -->
+        <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-bold">System Logs</h3>
+            <ul>
+                <li><a href="#" class="text-blue-500">View System Logs</a></li>
+                <li><a href="#" class="text-blue-500">Filter Logs</a></li>
+                <li><a href="#" class="text-blue-500">Export Logs</a></li>
+            </ul>
+        </div>
+
+        <!-- Notifications & Alerts -->
+        <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-bold">Notifications & Alerts</h3>
+            <ul>
+                <li><a href="#" class="text-blue-500">System Alerts</a></li>
+                <li><a href="#" class="text-blue-500">User Notifications</a></li>
+            </ul>
+        </div>
+
+        <!-- Reports & Analytics -->
+        <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-bold">Reports & Analytics</h3>
+            <ul>
+                <li><a href="#" class="text-blue-500">Generate Reports</a></li>
+                <li><a href="#" class="text-blue-500">Booking Trends</a></li>
+                <li><a href="#" class="text-blue-500">Export Reports</a></li>
+            </ul>
+        </div>
+
+        <!-- System Configuration -->
+        <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-bold">System Configuration</h3>
+            <ul>
+                <li><a href="#" class="text-blue-500">Settings Management</a></li>
+                <li><a href="#" class="text-blue-500">Access Control</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="p-4 mt-8 text-center text-white bg-gray-800">
+        <p>&copy; 2024 Room Finder Admin Dashboard. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
