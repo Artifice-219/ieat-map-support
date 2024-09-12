@@ -4,6 +4,7 @@
   },
   "scripts": {
     "dev": "npx tailwindcss -i frontend/src/input.css -o frontend/src/output.css --watch"
+    
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
