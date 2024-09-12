@@ -1,9 +1,16 @@
+const { get_secrets }= require('../config/secrets/passcode.js');
+
 const crypto = require("crypto");
 
 // defining some things for the encryption algorithm
 const algo = "aes-256-cbc";
-const secretKey = crypto.randomBytes(32);
-const iv = crypto.randomBytes(16);
+
+const{ hardcoded_secretKey, hardcoded_iv } = get_secrets();
+
+  const secretKey = hardcoded_secretKey;
+  const iv = hardcoded_iv;
+
+console.log(`secretKey : ${secretKey} , iv : ${iv}`)
 
 // main encryption function
 async function encrypt(plainText) {
