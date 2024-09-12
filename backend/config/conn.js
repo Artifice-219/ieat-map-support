@@ -9,10 +9,11 @@ async function connect_to_db(){
         // connecting to server
         await client.connect();
         console.log('Successfully connected to MongoDb');
+        const db = client.db('myLocalDB');
 
-        // returning db object
         // this file will be exported
-        return client.db('myLocalDB');
+        // returning the db and the client
+        return { db, client };
 
     }catch( error ){
 
