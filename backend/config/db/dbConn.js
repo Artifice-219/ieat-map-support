@@ -2,7 +2,7 @@ async function main(){
 
     const { MongoClient } = require('mongodb');
 
-    const uri = 'mongodb+srv://jpmalbas4:Y6p3D3EqeGFPczdI@cluster0.7nsvk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+    const uri = 'mongodb://localhost:27017';
     const client = new MongoClient(uri);
 
 
@@ -10,15 +10,17 @@ async function main(){
         
     await client.connect();
     console.log("Succesfully connected to the database");
+    // for exportation
+    return client;
 
     }catch(e){
         console.error(e);
         console.log('Cant connect to the database' , e)
 
     }
-    finally{
-        client.close();
-    }
 
 }
-main().catch(console.error);
+// main and ene export hindi ang client kasi if you export the client 
+// by its asynchronouse nature you will be most likely exporting an empty client
+
+module.exports = main;
