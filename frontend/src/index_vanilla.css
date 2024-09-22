@@ -38,24 +38,32 @@
             font-weight: 600;
         }
         
-      
-        .shrink{
+        #navbar {
+            transition: padding 0.3s ease, background-color 0.3s ease;
+        }
+        
+        #ShrinknavItem {
+            transition: font-size 0.3s ease;
+        }
+        
 
-            padding-top: 1.1rem;  /* Reduce padding */
-            padding-bottom: 0.1rem;  /* Adjust this as needed */
-            height: 60px;
-            border-bottom-width: 1px;  /* Optional: Reduce the bottom border width */
-        }
-        
-        .shrink h1 { /* Adjust Campus Navigator text */
-            font-size: 1.5rem; /* Smaller font size */
-        }
-        
-        .shrink .desktopMenu li a { /* Adjust About, Help, Faqs links */
-            font-size: 0.875rem; /* Smaller font size */
-            padding-top: 0.5rem; /* Adjust padding for better alignment */
+        .shrink-navbar {
+            padding-top: 0.5rem;
             padding-bottom: 0.5rem;
+            transition: padding 0.3s ease, background-color 0.3s ease;
         }
+        
+        .shrink-item {
+            font-size: .9rem; 
+            transition: font-size 0.3s ease;
+        }
+        
+        .shrink-logo {
+            font-size: 1.5rem; 
+            transition: font-size 0.3s ease;
+        }
+        
+      
     
 
         /* Custom Media Queries */
