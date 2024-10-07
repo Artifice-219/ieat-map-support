@@ -26,35 +26,28 @@ function closeDropdown() {
     }, { once: true });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+
+window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
-    const featuresSection = document.querySelector('.features').parentElement;
+    const shrinkItem = document.getElementById('ShrinknavItem');
+    const shrinkOptions = document.getElementById('ShrinknavOption');
 
-    if (!navbar) {
-        console.error('Navbar element not found');
-        return;
+    const featuresSection = document.querySelector('.features').getBoundingClientRect();
+
+    if (window.scrollY > featuresSection.top) {
+        navbar.classList.add('shrink-navbar');
+        shrinkItem.classList.add('shrink-item');
+        shrinkOptions.classList.add('shrink-item');
+         shrinkItem.classList.add('shrink-logo');
+    } else {
+        navbar.classList.remove('shrink-navbar');
+        shrinkItem.classList.remove('shrink-item');
+        shrinkOptions.classList.remove('shrink-item');
+        shrinkItem.classList.remove('shrink-logo');
     }
-
-    if (!featuresSection) {
-        console.error('Features section element not found');
-        return;
-    }
-
-    window.addEventListener('scroll', () => {
-        const featuresTop = featuresSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (featuresTop < windowHeight / 1) {
-            navbar.classList.add('shrink');
-            navbar.classList.add('ShrinknavOption');
-            navbar.classList.add('ShrinknavItem');
-        } else {
-            navbar.classList.remove('shrink');
-            navbar.classList.remove('ShrinknavOption');
-            navbar.classList.remove('ShrinknavItem');
-        }
-    });
 });
+
+
 
 
 
