@@ -9,7 +9,7 @@ const port = 3000;
 
 // TODO 3 : THIS IS AN ERRONOUS EXPORT FILE
 // Connect to MongoDB
-connectDB();
+main()
 
 // Middleware to parse form data
 app.use(express.json());
