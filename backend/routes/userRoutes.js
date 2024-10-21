@@ -1,5 +1,5 @@
 const express = require('express');
-//* TODO 4 IM SURE THS MODEL/USER FILE IS NOT EXISTING
+
 const User = require('../model/User');  // Model (Mongoose Schema)
 const router = express.Router();
 
