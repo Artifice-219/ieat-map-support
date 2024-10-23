@@ -1,3 +1,4 @@
+// TODO 14 : SAN YUNG LOGIC PARA MAG INSERT NG DATA TO THE DATABASE ?
 const express = require('express');
 
 const User = require('../model/User');  // Model (Mongoose Schema)
@@ -6,7 +7,6 @@ const router = express.Router();
 // POST route to handle form submission
 router.post('/user', async (req, res) => {
     console.log('Form data received:', req.body);  // Debugging print statement
-//* TODO 5 THIS USER SCHEMA IS NOT EXISTING AS OF YET LAHAT KASI NG ITO AT COY ASTED FROM RACTICE FOLDER
 
     try {
         // Create a new user document

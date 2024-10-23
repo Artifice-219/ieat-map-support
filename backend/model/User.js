@@ -8,7 +8,7 @@ const User = new moongose.Schema({
         require:true
     },
     id:{
-        type:Int,
+        type:Number,
         require:true
     }
 })
