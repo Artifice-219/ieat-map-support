@@ -63,7 +63,7 @@
 
             <div class="flex flex-wrap gap-6 buttons">
                 <a href="#" class="bg-[#4f0007] text-white py-2 px-6 rounded-lg shadow-lg hover:bg-white hover:text-[#4f0007] transition hover:font-bold" id="signupBtn">Sign Up</a>
-                <a href="#" class="bg-[#4f0007] text-white py-2 px-6 rounded-lg shadow-lg hover:bg-white hover:text-[#4f0007] transition hover:font-bold">Log In</a>
+                <a href="#" class="bg-[#4f0007] text-white py-2 px-6 rounded-lg shadow-lg hover:bg-white hover:text-[#4f0007] transition hover:font-bold" id="loginBtn">Log In</a>
             </div>
         </div>
 
@@ -101,13 +101,11 @@
         // for development only move this to its own file afterward
         document.getElementById('signupBtn').addEventListener('click', function(){
             //navigating to the signup route
-            fetch('http://localhost:3000/auth/signup')
-            .then(response => response.text())
-            .then(html => {
-                // replacing rendered page
-                document.body.innerHTML = html;
-            })
-            .catch(error => console.error("Error loading signUp page", error));
+            window.location.href = 'http://localhost:3000/frontend/pages/SignUp.html'
+        })
+
+        document.getElementById('loginBtn').addEventListener('click',() => {
+            window.location.href ='http://localhost:3000/frontend/pages/SignUp.html'
         })
     </script>
 </body>

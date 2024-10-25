@@ -1,14 +1,12 @@
 const express = require('express');
 
 // TODO 16 : HAVE AN ERROR HANDLING HERE JUST INCASE DI MAHANAP MGA FILES NA TO
-const connectDB = require('./backend/config/db/dbConn.js');  // Database connection
-const userRoutes = require('./backend/routes/userRoutes.js');  // Routes
+const connectDB = require('../db/dbConn.js');  // Database connection
+const userRoutes = require('../../routes/userRoutes.js');  // Routes
 
 const app = express();
 const port = 3000;
 
-// Connect to MongoDB
-// TODO 9 : AS THIS IS AN EXPORT FUNCTION HAVE A TRY CATCH BLOCK HERE TO MAKE SURE THAT ALL IS WORKING
 async function start_server(){
     try{
         await connectDB()
