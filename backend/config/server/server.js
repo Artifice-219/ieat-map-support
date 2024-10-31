@@ -1,8 +1,13 @@
 const express = require('express');
 
-// TODO 16 : HAVE AN ERROR HANDLING HERE JUST INCASE DI MAHANAP MGA FILES NA TO
-const connectDB = require('../db/dbConn.js');  // Database connection
-const userRoutes = require('../../routes/userRoutes.js');  // Routes
+try{
+    const connectDB = require('../db/dbConn.js');  // Database connection
+    const userRoutes = require('../../routes/userRoutes.js');  // Routes
+}catch(error){
+    console.log(`Unable to fetch modules ${error.message}`)
+    // redirecting to a non error page
+    window.location.href = 'index.html'
+}
 
 const app = express();
 const port = 3000;
@@ -15,9 +20,14 @@ async function start_server(){
         // Middleware to parse form data
         app.use(express.json());
         app.use(express.urlencoded({ extended: true }));
-
-        // TODO 17 : HAVE AN ERROR HANDLING BAKA SAKALING DI ULIT MAKUHA YUNG PATH
-        const path = require('path')
+        
+        try{
+            const path = require('path')
+        }
+        catch(error){
+            console.log(`Cannot load path ${error.message}`)
+            // dont just log the error put youre solution here
+        }
         app.use(express.static(__dirname));
 
         // Routes for handling form submission
