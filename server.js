@@ -1,13 +1,9 @@
 const express = require('express');
 
-try{
-    const connectDB = require('../db/dbConn.js');  // Database connection
-    const userRoutes = require('../../routes/userRoutes.js');  // Routes
-}catch(error){
-    console.log(`Unable to fetch modules ${error.message}`)
-    // redirecting to a non error page
-    window.location.href = 'index.html'
-}
+
+    const connectDB = require('./backend/config/db/dbConn.js');  // Database connection
+    const userRoutes = require('./backend/routes/userRoutes.js');  // Routes
+
 
 const app = express();
 const port = 3000;
