@@ -27,7 +27,7 @@ async function start_server(){
         app.use(express.static(__dirname));
 
         // Routes for handling form submission
-        app.use('/api', userRoutes);  // API routes
+        app.use('/api', userRoutes); 
         // starting the server
         app.listen(port, () => {
             console.log(`Server is running on port ${port}`);
