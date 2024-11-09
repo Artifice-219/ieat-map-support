@@ -1,0 +1,78 @@
+* {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.building {
+  width: 800px;
+  border: 2px solid #333;
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.firstFloor {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.secondFloor {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.room {
+  flex: 1;
+  background-color: #dfe6e9;
+  border: 1px solid #b2bec3;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.staircase {
+  width: 50px;
+  background-color: #00b894;
+  border: 1px solid #55efc4;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Styling for each room */
+.room {
+  background-color: #ffeaa7;
+}
+
+.bits_office {
+  background-color: #0a6807;
+  border: 1px solid #f5c23e;
+  color: white;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.IEATSC {
+  background-color: #f30909;
+  border: 1px solid #0a6807;
+  color: white;
+  padding: 20px;
+}
