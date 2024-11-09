@@ -11,7 +11,7 @@
         <input type="checkbox" id="check">
         <div class="login form">
           <header>Login</header>
-          <form action="#">
+          <form action="api/user" method="POST">
             <input type="text" placeholder="Username">
             <input type="password" placeholder="Password">
             <a href="#">Forgot password?</a>
@@ -25,11 +25,11 @@
         </div>
         <div class="registration form">
           <header>Signup</header>
-          <form action="#">
-            <input type="text" placeholder="Enter your email">
+          <form action="/api/user" method="POST">
+            <input type="text" placeholder="Enter your email" name="email">
             <input type="password" placeholder="Create a password">
             <input type="password" placeholder="Confirm your password">
-            <input type="button" class="button" value="Signup">
+            <input type="submit" class="button" value="Signup">
           </form>
           <div class="signup">
             <span class="signup">Already have an account?

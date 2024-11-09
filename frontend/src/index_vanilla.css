@@ -38,7 +38,32 @@
             font-weight: 600;
         }
         
+        #navbar {
+            transition: padding 0.3s ease, background-color 0.3s ease;
+        }
         
+        #ShrinknavItem {
+            transition: font-size 0.3s ease;
+        }
+        
+
+        .shrink-navbar {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            transition: padding 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .shrink-item {
+            font-size: .9rem; 
+            transition: font-size 0.3s ease;
+        }
+        
+        .shrink-logo {
+            font-size: 1.5rem; 
+            transition: font-size 0.3s ease;
+        }
+        
+      
     
 
         /* Custom Media Queries */
