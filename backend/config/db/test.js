@@ -1,8 +1,4 @@
-const { name } = require('ejs');
-// TODO 20 : WHAT THE FUCK DOES THIS NAME IMPORT DOING HERE ?
 const conn = require('./dbConn');
-const { Result } = require('postcss');
-// TODO 21 : WHAT THE FUCK DOES THIS RESULT IMPORT DOING HERE ?
 
 async function main(){
 
@@ -252,7 +248,7 @@ async function main(){
 
         if(e instanceof  TypeError){
             console.log(`'A TypeErro occured ${e}`)
-            //TODO 22 :  do something with the error handlind here dont just print it
+            alert(`An error ${e} has occured in the backend in test.js ??? `)
         }
         else{
             console.log(`An error occured ${e}`)

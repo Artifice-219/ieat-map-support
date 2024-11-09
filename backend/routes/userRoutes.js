@@ -24,6 +24,9 @@ router.post('/user', async (req, res) => {
         console.log(`'New student inserted succesfully ' ${student_insertionResult.insertedId}`)
         res.status(201).json({ message: 'User saved successfully!' });
 
+        // closing database connection
+        client.close()
+
     } catch (error) {
         console.error('Error saving user:', error);
         res.status(500).json({ error: 'Error saving user' });
@@ -34,5 +37,9 @@ router.post('/user', async (req, res) => {
 
     main()
 });
+
+
+
+
 
 module.exports = router;
