@@ -24,11 +24,20 @@
           </div>
         </div>
         <div class="registration form">
-          <header>Signup</header>
+          <header>Sign up</header>
           <form action="/api/user" method="POST">
-            <input type="text" placeholder="Enter your email" name="email">
-            <input type="password" placeholder="Create a password">
-            <input type="password" placeholder="Confirm your password">
+            <select name="type" id="type">
+              <option value="Student">Student</option>
+              <option value="Parents/Guardian">Parents/Guardians</option>
+            </select>
+            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="Username" name="username">
+            <input type="text" placeholder="Email" name="email">
+            <input type="text" placeholder="Gender" name="gender">
+            <input type="text" placeholder="Age" name="age">
+            <input type="text" placeholder="Student Number" name="number">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Confirm password">
             <input type="submit" class="button" value="Signup">
           </form>
           <div class="signup">
