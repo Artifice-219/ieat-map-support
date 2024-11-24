@@ -1,30 +1,3 @@
-<?php
-// Example user data fetched from a database or form submission
-$student_data = [
-    'student_number' => '202200169',
-    'student_name' => 'John Phillip Lor',
-    'student_email' => 'johnphilliplor.basc@gmail.com',
-    // change this path to the actual image
-    // 'profile_picture' => 'path_to_image.jpg',
-    'profile_picture' => 'https://i.pinimg.com/564x/18/85/d2/1885d23e24a59e2af629a3e741f2fab6.jpg',
-    'class_schedule' => [
-        ['class' => 'IT305', 'room' => 'ITNB 103', 'date' => 'Mon, Sep 2', 'time' => '08:00 AM - 09:00 AM'],
-
-    ],
-    'notifications' => [
-        'Reminder: Room ITNB 103 booked at 8:00 AM',
-        'Class "IT305" moved to Room ITNB 101',
-        // More notifications...
-    ],
-    'announcements' => [
-        'New semester starts on October 1st',
-        'Room ITNB 102 closed for maintenance',
-        // More announcements...
-    ]
-];
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,13 +14,11 @@ $student_data = [
     <div class="container p-4 mx-auto">
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <div class="flex items-center space-x-4">
-                <?php if ($student_data['profile_picture']): ?>
                     <img src="<?= $student_data['profile_picture'] ?>" alt="Profile Picture" class="w-16 h-16 rounded-full">
-                <?php endif; ?>
                 <div>
-                    <h2 class="text-2xl font-semibold">Welcome, <?= htmlspecialchars($student_data['student_name']) ?></h2>
-                    <p>Student Number: <?= htmlspecialchars($student_data['student_number']) ?></p>
-                    <p>Email: <span class="text-gray-500"><?= str_repeat('*', strlen($student_data['student_email']) - 4) . substr($student_data['student_email'], -4) ?></span></p>
+                    <h2 class="text-2xl font-semibold">Welcome,</h2>
+                    <p>Student Number:</p>
+                    <p>Email: <span class="text-gray-500"></span></p>
                 </div>
                 <a href="#" class="ml-auto text-blue-500 hover:underline">Edit Profile</a>
             </div>
@@ -87,14 +58,12 @@ $student_data = [
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($student_data['class_schedule'] as $class): ?>
                         <tr>
                             <td class="px-4 py-2 border"><?= htmlspecialchars($class['class']) ?></td>
                             <td class="px-4 py-2 border"><?= htmlspecialchars($class['room']) ?></td>
                             <td class="px-4 py-2 border"><?= htmlspecialchars($class['date']) ?></td>
                             <td class="px-4 py-2 border"><?= htmlspecialchars($class['time']) ?></td>
                         </tr>
-                    <?php endforeach; ?>
                 </tbody>
             </table>
             <a href="#" class="inline-block mt-4 text-blue-500 hover:underline">Sync with Calendar</a>
@@ -106,9 +75,7 @@ $student_data = [
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <h3 class="mb-4 text-xl font-semibold">Notifications</h3>
             <ul>
-                <?php foreach ($student_data['notifications'] as $notification): ?>
                     <li class="mb-2"><?= htmlspecialchars($notification) ?></li>
-                <?php endforeach; ?>
             </ul>
         </div>
     </div>
