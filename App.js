@@ -13,6 +13,16 @@ app.use(bodyParser.json());
 app.use("/static", express.static(__dirname + "/frontend"));
 // another static route to served the sign/login shit from the SignIn&SignUp folder
 // app.use(express.static(path.join(__dirname , 'SignIn&SignUp')))
+
+// session fucking middleware
+// use this shit to store logged in user data
+app.use(session({
+  // TODO 27 : REPLACE THIS FUCKER ONCE EVERTHING IS GOODS AND DONE
+  secret : 'fuck_me',
+  resave : false,
+  saveUninitialized: true, 
+  cookie: { secure: false } 
+}))
 // root leve middleware logger
 app.use((req, res, next) => {
   console.log(`${req.method} request made to ${__dirname + req.url}`);
@@ -50,7 +60,7 @@ app.post("/login",async (req, res, next) => {
             message : 'Student not found'
         })
     }
-    // res.send(studentFound);
+    // res.send(studentFound);,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   }catch(err){
     console.error(`Error finding student ${err}`);
     res.status(500).send({
@@ -63,7 +73,12 @@ app.post("/login",async (req, res, next) => {
 //   res.sendFile(
 //     path.join(__dirname, "frontend/pages/dashboard/studDashboard.html")
 //   );
-},(req, res) => {
+},(req, res , next)=>{
+  // this shit handles sessions
+  req.session.email = 'This email is from youre fucking session bobo'
+  next();
+},
+(req, res) => {
     // render a dashboard
     res.sendFile(path.join(__dirname, "frontend/pages/dashboard/studDashboard.html"))
 });
