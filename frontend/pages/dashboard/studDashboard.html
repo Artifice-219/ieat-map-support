@@ -17,8 +17,8 @@
                     <img src="<?= $student_data['profile_picture'] ?>" alt="Profile Picture" class="w-16 h-16 rounded-full">
                 <div>
                     <h2 class="text-2xl font-semibold">Welcome,</h2>
-                    <p>Student Number:</p>
-                    <p>Email: <span class="text-gray-500"></span></p>
+                    <p id="student-number">Student Number:</p>
+                    <p id="student-email">Email: <span class="text-gray-500"></span></p>
                 </div>
                 <a href="#" class="ml-auto text-blue-500 hover:underline">Edit Profile</a>
             </div>
@@ -115,16 +115,51 @@
             <h3 class="mb-4 text-xl font-semibold">Campus Announcements</h3>
             <ul>
                 <?php foreach ($student_data['announcements'] as $announcement): ?>
-<<<<<<< HEAD:frontend/pages/student dashboard/studDashboard.php
-                    <li class="mb-2"><?= htmlspecialchars($announcement) ?></li>
-=======
                 <li class="mb-2"><?= htmlspecialchars($announcement)?></li>
->>>>>>> 0a485949960123607710aa783a2f4e03af535657:frontend/pages/student dashboard/studDashboard.html
                 <?php endforeach; ?>
             </ul>
         </div>
     </div>
+    <!-- fetch script -->
+     <!-- TODO 43 : HAVE THIS ON ITS OWN SCRIPT FILE -->
+      <script>
 
+        const studentNumber = document.getElementById('student-number')
+        const studentEmail = document.getElementById('student-email');
+
+function fetchPractice(){
+try{
+    fetch(`http://localhost:3000/user`)
+    .then(
+        res => res.json({
+            message : 'fucking hell'
+        })
+    )
+    .then(d => {
+        // console.log(d),
+        // add to localStorage
+       const currentUser = JSON.stringify(d)
+       localStorage.setItem('currentUser', currentUser);
+       //testing to retrived that fuc,k,
+       console.log('the next log is the retrieved fucker')
+       console.log(retrivedFucker)
+       console.log(`retrievedFucker's name : ${retrivedFucker['firstName']}`)
+       console.log(`Retrieved Fucker's student number is : ${retrivedFucker['studentNumber']}`)
+    })
+
+}catch(error){
+    console.error(`An error occured ${error}`)
+}
+
+}
+fetchPractice()
+
+const retrivedFucker = JSON.parse(localStorage.getItem('currentUser'));
+
+            studentNumber.innerText += retrivedFucker['studentNumber']
+            studentEmail.innerText += retrivedFucker['email']
+
+      </script>
 </body>
 
 </html>

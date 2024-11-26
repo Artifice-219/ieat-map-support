@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const session = require('express-session')
 // this shit is needed to parse post request
 const bodyParser = require("body-parser");
 const Student = require("./backend/model/studentModel.js");
@@ -60,7 +61,9 @@ app.post("/login",async (req, res, next) => {
             message : 'Student not found'
         })
     }
-    // res.send(studentFound);,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+   
+    // store that fucking email on the session thing
+    req.session.email = email;
   }catch(err){
     console.error(`Error finding student ${err}`);
     res.status(500).send({
@@ -68,14 +71,6 @@ app.post("/login",async (req, res, next) => {
     })
 
   }
-  next();
-  // respond with dashbord
-//   res.sendFile(
-//     path.join(__dirname, "frontend/pages/dashboard/studDashboard.html")
-//   );
-},(req, res , next)=>{
-  // this shit handles sessions
-  req.session.email = 'This email is from youre fucking session bobo'
   next();
 },
 (req, res) => {
@@ -124,5 +119,39 @@ app.post("/signup", async (req, res, next) => {
 }
 );
 
+// use this fucking route to query the database
+app.get('/user', async (req, res ) => {
+  let email = req.session.email;
+
+      // TODO 23 : HAVE THIS CONNECTION LOGIC ON ITS FILE PARA DI MAGULO
+      const mongoose = require("mongoose");
+      const mongo_uri ="mongodb+srv://johnphillipmalbasdev:JA7RY5uorElI2cYg@cluster0.9pms9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    
+      mongoose.connect(mongo_uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+
+      // query the database using the email on the route param
+      try{
+
+        const studentFound = await Student.findOne({email : email});
+
+        if(!studentFound){
+          return res.status(404).send({
+            message : 'Fucker not found'
+          });
+        };
+
+        res.send(studentFound);
+        console.error(email)
+
+      }catch(error){
+        console.error(`An error occured because you suck as a programmer ${error}`)
+        res.status(500).send({
+          message : `'An internal server error occured because the programmer is gay as fuck' ${error}`
+        });
+      };
+})
 // keep this at the last line
 module.exports = app;
