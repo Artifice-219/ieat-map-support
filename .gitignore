@@ -2,3 +2,5 @@
 **/todo.txt
 # ignore .vscode
 .vscode/
+# ignoring node modules
+node_modules/
