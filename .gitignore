@@ -1,3 +1,4 @@
 # ignoring all todo.txt
 **/todo.txt
 # ignore .vscode
+.vscode/
