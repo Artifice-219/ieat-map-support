@@ -9,94 +9,124 @@
 </head>
 
 <body style="background-color: #4f0007;">
-
     <!-- Welcome Message & Profile Summary -->
     <div class="container p-4 mx-auto">
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <div class="flex items-center space-x-4">
-                    <img src="<?= $student_data['profile_picture'] ?>" alt="Profile Picture" class="w-16 h-16 rounded-full">
+                <img src="" alt="Profile Picture" id="profile-picture" class="w-16 h-16 rounded-full">
                 <div>
-                    <h2 class="text-2xl font-semibold">Welcome,</h2>
-                    <p id="student-number">Student Number:</p>
-                    <p id="student-email">Email: <span class="text-gray-500"></span></p>
+                    <h2 class="text-2xl font-semibold">Welcome, <span id="student-name">Student</span></h2>
+                    <p id="student-number">Student Number: <span>N/A</span></p>
+                    <p id="student-email">Email: <span class="text-gray-500">N/A</span></p>
                 </div>
                 <a href="#" class="ml-auto text-blue-500 hover:underline">Edit Profile</a>
             </div>
         </div>
     </div>
-
-    <!-- Room Finder/Locator Map -->
+    
+    <!-- Room Finder -->  
     <div class="container p-4 mx-auto">
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <h3 class="mb-4 text-xl font-semibold">Room Finder</h3>
             <input type="text" class="w-full p-2 mb-4 border rounded" placeholder="Search for rooms or buildings...">
-            <div class="h-96 mb-4 bg-gray-300 map">
-                <!-- Interactive campus map should be embedded here -->
-                <p class="text-center" style="position: relative;">Interactive Campus Map<iframe style="position: absolute; width: 100%; height: 340px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.4998337133607!2d120.95077826108097!3d15.075756365205669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33970309be916ca3%3A0xbcb6761ad07049e5!2sBulacan%20Agricultural%20State%20College%20Business%20Center!5e0!3m2!1sen!2sph!4v1725900214027!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
-
+            <div class="mb-4 bg-gray-300 h-96">
+                <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.4998337133607!2d120.95077826108097!3d15.075756365205669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33970309be916ca3%3A0xbcb6761ad07049e5!2sBulacan%20Agricultural%20State%20College%20Business%20Center!5e0!3m2!1sen!2sph!4v1725900214027!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div>
                 <h4 class="text-lg font-semibold">Real-Time Room Availability</h4>
                 <p class="text-gray-500">Room ITNB 101: Available now</p>
                 <p class="text-gray-500">Room ITNB 103: Booked until 2:00 PM</p>
-                <!-- Dynamic data should be fetched here -->
             </div>
         </div>
     </div>
+    
+       <!-- Grid Layout for Add Subject Interface and Your Schedule -->
+<div class="container p-4 mx-auto">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <!-- Add Subject Interface -->
+        <div class="p-6 bg-white rounded-lg shadow-lg">
+            <h3 class="mb-4 text-xl font-semibold">Add a Subject</h3>
+            <form id="add-subject-form">
+                <div class="mb-4">
+                    <label for="subject-name" class="block mb-2 text-sm font-medium">Subject Name</label>
+                    <input type="text" id="subject-name" class="w-full p-2 border rounded" placeholder="Enter subject name" required>
+                </div>
+                <div class="mb-4">
+                    <label for="subject-instructor" class="block mb-2 text-sm font-medium">Instructor</label>
+                    <input type="text" id="subject-instructor" class="w-full p-2 border rounded" placeholder="Enter instructor name" required>
+                </div>
+                <div class="mb-4">
+                    <label for="subject-day" class="block mb-2 text-sm font-medium">Days of the Week</label>
+                    <input type="text" id="subject-day" class="w-full p-2 border rounded" placeholder="ex. Monday, Wednesday, Friday" required>
+                </div>
+                <div class="mb-4">
+                    <label for="start-time" class="block mb-2 text-sm font-medium">Start Time</label>
+                    <input type="time" id="start-time" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="end-time" class="block mb-2 text-sm font-medium">End Time</label>
+                    <input type="time" id="end-time" class="w-full p-2 border rounded" required>
+                </div>
+                <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Add Subject</button>
+            </form>
+        </div>
 
-    <!-- Student Schedule -->
-    <div class="container p-4 mx-auto">
+        <!-- Your Schedule -->
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <h3 class="mb-4 text-xl font-semibold">Your Schedule</h3>
-            <table class="w-full table-auto">
+            <table class="w-full border border-collapse border-gray-300 table-auto">
                 <thead>
                     <tr>
-                        <th class="px-4 py-2">Class</th>
-                        <th class="px-4 py-2">Room</th>
-                        <th class="px-4 py-2">Date</th>
-                        <th class="px-4 py-2">Time</th>
+                        <th class="px-4 py-2 bg-gray-100 border">Class</th>
+                        <th class="px-4 py-2 bg-gray-100 border">Instructor</th>
+                        <th class="px-4 py-2 bg-gray-100 border">Days</th>
+                        <th class="px-4 py-2 bg-gray-100 border">Start Time</th>
+                        <th class="px-4 py-2 bg-gray-100 border">End Time</th>
                     </tr>
                 </thead>
-                <tbody>
-                        <tr>
-                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['class']) ?></td>
-                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['room']) ?></td>
-                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['date']) ?></td>
-                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['time']) ?></td>
-                        </tr>
+                <tbody id="schedule-table">
+                    <!-- Dynamically filled rows -->
+                    <tr>
+                        <td colspan="5" class="px-4 py-2 text-center text-gray-500">No schedule added.</td>
+                    </tr>
                 </tbody>
             </table>
-            <a href="#" class="inline-block mt-4 text-blue-500 hover:underline">Sync with Calendar</a>
         </div>
     </div>
-
-    <!-- Notifications -->
-    <div class="container p-4 mx-auto">
+</div>
+    
+<!-- Grid Layout for Notifications, Help, Announcements, and Settings -->
+<div class="container p-4 mx-auto">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <!-- Row 1: Notifications and Campus Announcements -->
         <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Notifications</h3>
+            <h3 class="text-xl font-semibold">Notifications</h3>
             <ul>
-                    <li class="mb-2"><?= htmlspecialchars($notification) ?></li>
+                <li>New grades available for Physics 101.</li>
+                <li>Advising session scheduled for Dec 8th.</li>
             </ul>
         </div>
-    </div>
 
-    <!-- Help & Support -->
-    <div class="container p-4 mx-auto">
         <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Help & Support</h3>
-            <a href="#" class="text-blue-500 hover:underline">Help Center</a>
-            <p>Contact us at: <a href="mailto:support@campus.com" class="text-blue-500 hover:underline">support@campus.com</a></p>
+            <h3 class="text-xl font-semibold">Campus Announcements</h3>
+            <p>Semester begins on Jan 10th.</p>
+            <p>Library hours extended to 10 PM.</p>
         </div>
-    </div>
 
-    <!-- Settings -->
-    <div class="container p-4 mx-auto">
+        <!-- Row 2: Settings and Help & Support -->
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <h3 class="mb-4 text-xl font-semibold">Settings</h3>
             <a href="#" class="text-blue-500 hover:underline">Account Settings</a>
             <a href="#" class="ml-4 text-blue-500 hover:underline">Language & Accessibility</a>
         </div>
+
+        <div class="p-6 bg-white rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold">Help & Support</h3>
+            <a href="#" class="text-blue-500 hover:underline">Help Center</a>
+            <p>Contact us at: <a href="mailto:support@campus.com" class="text-blue-500 hover:underline">support@campus.com</a></p>
+        </div>
     </div>
+</div>
 
     <!-- Feedback -->
     <div class="container p-4 mx-auto">
@@ -109,57 +139,85 @@
         </div>
     </div>
 
-    <!-- Announcements -->
-    <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Campus Announcements</h3>
-            <ul>
-                <?php foreach ($student_data['announcements'] as $announcement): ?>
-                <li class="mb-2"><?= htmlspecialchars($announcement)?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    </div>
-    <!-- fetch script -->
-     <!-- TODO 43 : HAVE THIS ON ITS OWN SCRIPT FILE -->
-      <script>
+    <script>
+        // Fetch user profile data from API
+        function fetchProfile() {
+            fetch('http://localhost:3000/user')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('profile-picture').src = data.profilePicture || '';
+                    document.getElementById('student-name').textContent = data.firstName || 'Student';
+                    document.getElementById('student-number').textContent += data.studentNumber || 'N/A';
+                    document.getElementById('student-email').textContent += data.email || 'N/A';
+                })
+                .catch(error => console.error('Error fetching user data:', error));
+        }
 
-        const studentNumber = document.getElementById('student-number')
-        const studentEmail = document.getElementById('student-email');
+        // Handle adding subjects
+        const addSubjectForm = document.getElementById('add-subject-form');
+        addSubjectForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const subjectName = document.getElementById('subject-name').value;
+            const instructor = document.getElementById('subject-instructor').value;
+            const subjectDay = document.getElementById('subject-day').value;
+            const startTime = document.getElementById('start-time').value;
+            const endTime = document.getElementById('end-time').value;
 
-function fetchPractice(){
-try{
-    fetch(`http://localhost:3000/user`)
-    .then(
-        res => res.json({
-            message : 'fucking hell'
-        })
-    )
-    .then(d => {
-        // console.log(d),
-        // add to localStorage
-       const currentUser = JSON.stringify(d)
-       localStorage.setItem('currentUser', currentUser);
-       //testing to retrived that fuc,k,
-       console.log('the next log is the retrieved fucker')
-       console.log(retrivedFucker)
-       console.log(`retrievedFucker's name : ${retrivedFucker['firstName']}`)
-       console.log(`Retrieved Fucker's student number is : ${retrivedFucker['studentNumber']}`)
-    })
+            const newSubject = {
+                name: subjectName,
+                instructor: instructor,
+                schedule: {
+                    days: subjectDay,
+                    startTime: startTime,
+                    endTime: endTime
+                }
+            };
 
-}catch(error){
-    console.error(`An error occured ${error}`)
-}
+            let subjects = JSON.parse(localStorage.getItem('subjects')) || [];
+            subjects.push(newSubject);
+            localStorage.setItem('subjects', JSON.stringify(subjects));
 
-}
-fetchPractice()
+            alert('Subject added successfully!');
+            addSubjectForm.reset();
+            displaySchedule();
+        });
 
-const retrivedFucker = JSON.parse(localStorage.getItem('currentUser'));
+        // Display schedule from localStorage
+        function displaySchedule() {
+            const scheduleTable = document.getElementById('schedule-table');
+            scheduleTable.innerHTML = '';
+            const subjects = JSON.parse(localStorage.getItem('subjects')) || [];
+            subjects.forEach(subject => {
+                const row = `<tr>
+                    <td class="px-4 py-2 border">${subject.name}</td>
+                    <td class="px-4 py-2 border">${subject.instructor}</td>
+                    <td class="px-4 py-2 border">${subject.schedule.days}</td>
+                    <td class="px-4 py-2 border">${subject.schedule.startTime}</td>
+                    <td class="px-4 py-2 border">${subject.schedule.endTime}</td>
+                </tr>`;
+                scheduleTable.innerHTML += row;
+            });
+        }
+        function displaySchedule() {
+            const scheduleTable = document.getElementById('schedule-table');
+            const subjects = JSON.parse(localStorage.getItem('subjects')) || [];
+            scheduleTable.innerHTML = subjects.length
+                ? subjects.map(subject => `
+                    <tr>
+                        <td>${subject.name}</td>
+                        <td>${subject.instructor}</td>
+                        <td>${subject.schedule.days}</td>
+                        <td>${subject.schedule.startTime}</td>
+                        <td>${subject.schedule.endTime}</td>
+                    </tr>
+                `).join('')
+                : '<tr><td colspan="5">No schedule added.</td></tr>';
+        }
 
-            studentNumber.innerText += retrivedFucker['studentNumber']
-            studentEmail.innerText += retrivedFucker['email']
-
-      </script>
+        // Initialize
+        fetchProfile();
+        displaySchedule();
+    </script>
 </body>
 
 </html>
