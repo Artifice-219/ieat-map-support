@@ -1,13 +1,27 @@
-const mongoose = require('mongoose');
-const mongo_uri = ' mongodb+srv://johnphillipmalbasdev:JA7RY5uorElI2cYg@cluster0.9pms9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-const Student = require('../../model/studentModel.js')
-mongoose.connect(mongo_uri, {useNewUrlParser : true, useUnifiedTopology : true})
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Cant connect to database', err))
+const conn = require('./../../config/dbconn')
+const Student = require('./../../model/studentModel')
 
-async function saveStudent(student){
-    console.log(`Student : ${student}`)
-    
+async function saveStudent(username, email, age, gender , studentNumber, password){
+
+    conn()
+
+    try{
+        const newStudent = new Student({
+            firstName: username,
+            lastName: "you have no last name param",
+            email : email,
+            age: age,
+            gender: gender,
+            studentNumber: studentNumber,
+            password : password
+          });
+          
+          const savedStudent = await newStudent.save();
+          console.log(`'New record saved : ' ${savedStudent}`)
+    }
+    catch(err){
+        console.error(`Cannot save student :  ${err}`);
+    }
 }
 
 
