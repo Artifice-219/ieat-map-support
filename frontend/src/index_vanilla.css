@@ -6,7 +6,7 @@
         
         /* Custom Styles */
         body {
-            background-image: url('/frontend/assets/images/map3.png');
+            background-image: url('../assets/images/map3.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -102,7 +102,7 @@
             font-weight: 600;
              }
              body {
-            background-image: url('/frontend/assets/images/mapMDsmall.png');
+            background-image: url('../assets/images/mapMDsmall.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -154,7 +154,7 @@
             font-weight: 600;
              }
              body {
-            background-image: url('/frontend/assets/images/mapMD.png');
+            background-image: url('../assets/images/mapMD.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -212,7 +212,7 @@
                 font-weight: 600;
             }
             body {
-                background-image: url('/frontend/assets/images/mapMD.png');
+                background-image: url('../assets/images/mapMD.png');
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -231,7 +231,7 @@
         /* 768px and 1024px*/
         @media (min-width: 768px) and (max-width: 1024px) {
             body {
-                background-image: url('/frontend/assets/images/mapTablet.png');
+                background-image: url('../assets/images/mapTablet.png');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
