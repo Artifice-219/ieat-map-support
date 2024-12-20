@@ -16,8 +16,9 @@
                 <img src="" alt="Profile Picture" id="profile-picture" class="w-16 h-16 rounded-full">
                 <div>
                     <h2 class="text-2xl font-semibold">Welcome, <span id="student-name">Student</span></h2>
-                    <p id="student-number">Student Number: <span>N/A</span></p>
-                    <p id="student-email">Email: <span class="text-gray-500">N/A</span></p>
+                    <p id="student-number">Student Number:</p>
+                    <p id="student-email">Email:</p>
+                    <p id="serial">Serial:</p>
                 </div>
                 <a href="#" class="ml-auto text-blue-500 hover:underline">Edit Profile</a>
             </div>
@@ -49,23 +50,23 @@
             <form id="add-subject-form">
                 <div class="mb-4">
                     <label for="subject-name" class="block mb-2 text-sm font-medium">Subject Name</label>
-                    <input type="text" id="subject-name" class="w-full p-2 border rounded" placeholder="Enter subject name" required>
+                    <input type="text" id="subject-name" name="subjectName" class="w-full p-2 border rounded" placeholder="Enter subject name" required>
                 </div>
                 <div class="mb-4">
                     <label for="subject-instructor" class="block mb-2 text-sm font-medium">Instructor</label>
-                    <input type="text" id="subject-instructor" class="w-full p-2 border rounded" placeholder="Enter instructor name" required>
+                    <input type="text" id="subject-instructor" name="subjectInstructor" class="w-full p-2 border rounded" placeholder="Enter instructor name" required>
                 </div>
                 <div class="mb-4">
                     <label for="subject-day" class="block mb-2 text-sm font-medium">Days of the Week</label>
-                    <input type="text" id="subject-day" class="w-full p-2 border rounded" placeholder="ex. Monday, Wednesday, Friday" required>
+                    <input type="text" id="subject-day" name="subjectDay" class="w-full p-2 border rounded" placeholder="ex. Monday, Wednesday, Friday" required>
                 </div>
                 <div class="mb-4">
                     <label for="start-time" class="block mb-2 text-sm font-medium">Start Time</label>
-                    <input type="time" id="start-time" class="w-full p-2 border rounded" required>
+                    <input type="time" id="start-time" name="startTime" class="w-full p-2 border rounded" required>
                 </div>
                 <div class="mb-4">
                     <label for="end-time" class="block mb-2 text-sm font-medium">End Time</label>
-                    <input type="time" id="end-time" class="w-full p-2 border rounded" required>
+                    <input type="time" id="end-time" name="endTime" class="w-full p-2 border rounded" required>
                 </div>
                 <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Add Subject</button>
             </form>
@@ -149,19 +150,22 @@
                     document.getElementById('student-name').textContent = data.firstName || 'Student';
                     document.getElementById('student-number').textContent += data.studentNumber || 'N/A';
                     document.getElementById('student-email').textContent += data.email || 'N/A';
+                    document.getElementById('serial').textContent += data._id;
                 })
                 .catch(error => console.error('Error fetching user data:', error));
         }
 
         // Handle adding subjects
         const addSubjectForm = document.getElementById('add-subject-form');
-        addSubjectForm.addEventListener('submit', function (e) {
+        addSubjectForm.addEventListener('submit', async function (e) {
             e.preventDefault();
             const subjectName = document.getElementById('subject-name').value;
             const instructor = document.getElementById('subject-instructor').value;
             const subjectDay = document.getElementById('subject-day').value;
             const startTime = document.getElementById('start-time').value;
             const endTime = document.getElementById('end-time').value;
+            // a shitty way to get the value
+            const db_id = '6742ed2c8664aa2559d06d73'
 
             const newSubject = {
                 name: subjectName,
@@ -173,13 +177,33 @@
                 }
             };
 
-            let subjects = JSON.parse(localStorage.getItem('subjects')) || [];
-            subjects.push(newSubject);
-            localStorage.setItem('subjects', JSON.stringify(subjects));
+            try{
+                // trying to connect this to the backend
+                const response = await fetch(`http://localhost:3000/add-subject/${db_id}`, {
+                    method : 'POST',
+                    headers: {
+                        'Content-type' : 'application/json',
 
-            alert('Subject added successfully!');
-            addSubjectForm.reset();
-            displaySchedule();
+                    },
+                    body : JSON.stringify(newSubject),
+                });
+                // lipat existing logic here
+                if(response.ok){
+                    const result = await response.json();
+                    alert('Subject added successfully!');
+                    let subjects = JSON.parse(localStorage.getItem('subjects')) || [];
+                    subjects.push(newSubject);
+                    localStorage.setItem('subjects', JSON.stringify(subjects));
+                    addSubjectForm.reset();
+                    displaySchedule();
+                }else{
+                    throw new Error(`Failed to add subject : ${response.statusText}`);
+                }
+                
+            }
+            catch(e){
+                console.error('Error adding a new subject:', error);
+            }
         });
 
         // Display schedule from localStorage

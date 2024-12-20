@@ -6,10 +6,14 @@ const bodyParser = require("body-parser");
 const Student = require("./backend/model/studentModel.js");
 const conn = require('./backend/config/dbconn.js')
 const saveStudent = require('./backend/controller/database/saveStudent.js')
+const updateStudent_Subject = require('./backend/controller/database/updateSubject.js');
+const { default: mongoose } = require("mongoose");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use("/static", express.static(__dirname + "/frontend"));
+// for json request
+app.use(express.json())
 
 
 app.use(session({
@@ -109,6 +113,33 @@ app.get('/user', async (req, res ) => {
           message : `'An internal server error occured because the programmer is gay as fuck' ${error}`
         });
       };
+})
+
+// for the adding of subjects
+app.post('/add-subject/:db_id', async (req, res) => {
+  const { db_id } = req.params;
+  const { name, instructor, schedule, startTime, endTime, days } = req.body;
+
+  const subject_name = name;
+  const studentDb_id = db_id
+  conn();
+
+  const updated_data = {
+    schedule: {
+      [subject_name]: {
+        days: days,
+        startTime: startTime,
+        endTime: endTime
+      }
+    }
+  };
+  
+  updateStudent_Subject(studentDb_id, subject_name, updated_data);
+
+  res.json({
+    message : "okay"
+  })
+
 })
 // keep this at the last line
 module.exports = app;

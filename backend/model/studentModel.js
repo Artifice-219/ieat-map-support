@@ -25,6 +25,14 @@ const studentSchema = new mongoose.Schema({
     password : {
         type : Number,
         require : true
+    },
+    schedule : {
+        type : Map,
+        of : {
+            days : String,
+            startTime : String,
+            endTime : String
+        }
     }
 })
 
