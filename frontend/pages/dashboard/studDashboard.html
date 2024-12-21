@@ -75,6 +75,7 @@
         <!-- Your Schedule -->
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <h3 class="mb-4 text-xl font-semibold">Your Schedule</h3>
+            <p id="current-time" class="mb-4 text-xl font-semibold"> Current Time : </p>
             <table class="w-full border border-collapse border-gray-300 table-auto">
                 <thead>
                     <tr>
@@ -141,6 +142,56 @@
     </div>
 
     <script>
+        // will get the current time
+        function getTime(){
+            const currentTime = new Date();
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            let timeFormat = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12 ; // always loops back to '12'
+
+            const now = `${hours}:${minutes} ${timeFormat}`;
+
+            return now
+        
+        }
+
+
+        const currentTime = document.getElementById('current-time')
+        currentTime.textContent += getTime()
+
+            function convertTo24Hour(timeStr) {
+            let [time, modifier] = timeStr.split(' ');
+            let [hours, minutes] = time.split(':');
+            if (hours === '12') {
+                hours = modifier === 'AM' ? '00' : '12';
+            } else {
+                hours = modifier === 'PM' ? String(parseInt(hours, 10) + 12) : hours;
+            }
+            return `${hours}:${minutes}`;
+        }
+
+          // Format time back to 12-hour format
+          function formatTime(time) {
+            const [hours, minutes] = time.split(':');
+            const hour = parseInt(hours, 10);
+            const modifier = hour >= 12 ? 'PM' : 'AM';
+            const formattedHour = hour % 12 || 12;
+            return `${formattedHour}:${minutes} ${modifier}`;
+        }
+
+         // Sort subjects by start time
+         function sortSubjects(subjects) {
+            return subjects.sort((a, b) => {
+                const aTime = convertTo24Hour(a.schedule.startTime);
+                const bTime = convertTo24Hour(b.schedule.startTime);
+                return aTime.localeCompare(bTime);
+            });
+        }
+
+
         // Fetch user profile data from API
         function fetchProfile() {
             fetch('http://localhost:3000/user')
@@ -193,6 +244,7 @@
                     alert('Subject added successfully!');
                     let subjects = JSON.parse(localStorage.getItem('subjects')) || [];
                     subjects.push(newSubject);
+                    subjects = sortSubjects(subjects);
                     localStorage.setItem('subjects', JSON.stringify(subjects));
                     addSubjectForm.reset();
                     displaySchedule();
@@ -221,7 +273,12 @@
                 </tr>`;
                 scheduleTable.innerHTML += row;
             });
+
+            if (subjects.length === 0) {
+                scheduleTable.innerHTML = `<tr><td colspan="5" class="px-4 py-2 text-center text-gray-500">No schedule added.</td></tr>`;
+            }
         }
+
         function displaySchedule() {
             const scheduleTable = document.getElementById('schedule-table');
             const subjects = JSON.parse(localStorage.getItem('subjects')) || [];
