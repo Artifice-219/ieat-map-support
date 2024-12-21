@@ -6,10 +6,11 @@
         
         /* Custom Styles */
         body {
+            font-family: "Poppins";
             background-image: url('../assets/images/map3.png');
-            background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+            background-size:cover;
         }
 
         .navItem {
@@ -62,6 +63,11 @@
             font-size: 1.5rem; 
             transition: font-size 0.3s ease;
         }
+        
+        h2{
+            font-size: 30pt;
+        }
+        
         
       
     
