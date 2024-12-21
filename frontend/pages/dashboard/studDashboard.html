@@ -1,165 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body style="background-color: #4f0007;">
-
+  <body style="background-color: #4f0007">
     <!-- Welcome Message & Profile Summary -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <div class="flex items-center space-x-4">
-                    <img src="<?= $student_data['profile_picture'] ?>" alt="Profile Picture" class="w-16 h-16 rounded-full">
-                <div>
-                    <h2 class="text-2xl font-semibold">Welcome,</h2>
-                    <p id="student-number">Student Number:</p>
-                    <p id="student-email">Email: <span class="text-gray-500"></span></p>
-                </div>
-                <a href="#" class="ml-auto text-blue-500 hover:underline">Edit Profile</a>
-            </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <div class="flex items-center space-x-4">
+          <img
+            src="<?= $student_data['profile_picture'] ?>"
+            alt="Profile Picture"
+            class="w-16 h-16 rounded-full"
+          />
+          <div>
+            <h2 class="text-2xl font-semibold">Welcome,</h2>
+            <p id="student-number">Student Number:</p>
+            <p id="student-email">Email: <span class="text-gray-500"></span></p>
+          </div>
+          <a href="#" class="ml-auto text-blue-500 hover:underline"
+            >Edit Profile</a
+          >
         </div>
+      </div>
     </div>
 
     <!-- Room Finder/Locator Map -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Room Finder</h3>
-            <input type="text" class="w-full p-2 mb-4 border rounded" placeholder="Search for rooms or buildings...">
-            <div class="h-96 mb-4 bg-gray-300 map">
-                <!-- Interactive campus map should be embedded here -->
-                <p class="text-center" style="position: relative;">Interactive Campus Map<iframe style="position: absolute; width: 100%; height: 340px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.4998337133607!2d120.95077826108097!3d15.075756365205669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33970309be916ca3%3A0xbcb6761ad07049e5!2sBulacan%20Agricultural%20State%20College%20Business%20Center!5e0!3m2!1sen!2sph!4v1725900214027!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
-
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold">Real-Time Room Availability</h4>
-                <p class="text-gray-500">Room ITNB 101: Available now</p>
-                <p class="text-gray-500">Room ITNB 103: Booked until 2:00 PM</p>
-                <!-- Dynamic data should be fetched here -->
-            </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="mb-4 text-xl font-semibold">Room Finder</h3>
+        <input
+          type="text"
+          class="w-full p-2 mb-4 border rounded"
+          placeholder="Search for rooms or buildings..."
+        />
+        <div class="h-96 mb-4 bg-gray-300 map">
+          <!-- Interactive campus map should be embedded here -->
+          <p class="text-center" style="position: relative">
+            Interactive Campus Map<iframe
+              style="position: absolute; width: 100%; height: 340px"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.4998337133607!2d120.95077826108097!3d15.075756365205669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33970309be916ca3%3A0xbcb6761ad07049e5!2sBulacan%20Agricultural%20State%20College%20Business%20Center!5e0!3m2!1sen!2sph!4v1725900214027!5m2!1sen!2sph"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </p>
         </div>
+        <div>
+          <h4 class="text-lg font-semibold">Real-Time Room Availability</h4>
+          <p class="text-gray-500">Room ITNB 101: Available now</p>
+          <p class="text-gray-500">Room ITNB 103: Booked until 2:00 PM</p>
+
+          <!-- ito 'yung button palink salamatsu -->
+          <button 
+            style="
+              background-color: #970000;
+              color: white;
+              border: none;
+              padding: 10px 20px;
+              font-size: 16px;
+              cursor: pointer;
+              border-radius: 5px;
+              position: relative;
+              left: 1300px;
+              bottom: 45px;
+            "
+            onmouseover="this.style.backgroundColor='#560101';"
+            onmouseout="this.style.backgroundColor='#970000';"
+            onclick="window.location.href='frontend/pages/dashboard/blueprint.html';"
+          >
+            IT Map
+          </button>
+
+          <!-- Dynamic data should be fetched here -->
+        </div>
+      </div>
     </div>
 
     <!-- Student Schedule -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Your Schedule</h3>
-            <table class="w-full table-auto">
-                <thead>
-                    <tr>
-                        <th class="px-4 py-2">Class</th>
-                        <th class="px-4 py-2">Room</th>
-                        <th class="px-4 py-2">Date</th>
-                        <th class="px-4 py-2">Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['class']) ?></td>
-                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['room']) ?></td>
-                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['date']) ?></td>
-                            <td class="px-4 py-2 border"><?= htmlspecialchars($class['time']) ?></td>
-                        </tr>
-                </tbody>
-            </table>
-            <a href="#" class="inline-block mt-4 text-blue-500 hover:underline">Sync with Calendar</a>
-        </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="mb-4 text-xl font-semibold">Your Schedule</h3>
+        <table class="w-full table-auto">
+          <thead>
+            <tr>
+              <th class="px-4 py-2">Class</th>
+              <th class="px-4 py-2">Room</th>
+              <th class="px-4 py-2">Date</th>
+              <th class="px-4 py-2">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="px-4 py-2 border">
+                <?= htmlspecialchars($class['class']) ?>
+              </td>
+              <td class="px-4 py-2 border">
+                <?= htmlspecialchars($class['room']) ?>
+              </td>
+              <td class="px-4 py-2 border">
+                <?= htmlspecialchars($class['date']) ?>
+              </td>
+              <td class="px-4 py-2 border">
+                <?= htmlspecialchars($class['time']) ?>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="#" class="inline-block mt-4 text-blue-500 hover:underline"
+          >Sync with Calendar</a
+        >
+      </div>
     </div>
 
     <!-- Notifications -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Notifications</h3>
-            <ul>
-                    <li class="mb-2"><?= htmlspecialchars($notification) ?></li>
-            </ul>
-        </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="mb-4 text-xl font-semibold">Notifications</h3>
+        <ul>
+          <li class="mb-2"><?= htmlspecialchars($notification) ?></li>
+        </ul>
+      </div>
     </div>
 
     <!-- Help & Support -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Help & Support</h3>
-            <a href="#" class="text-blue-500 hover:underline">Help Center</a>
-            <p>Contact us at: <a href="mailto:support@campus.com" class="text-blue-500 hover:underline">support@campus.com</a></p>
-        </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="mb-4 text-xl font-semibold">Help & Support</h3>
+        <a href="#" class="text-blue-500 hover:underline">Help Center</a>
+        <p>
+          Contact us at:
+          <a
+            href="mailto:support@campus.com"
+            class="text-blue-500 hover:underline"
+            >support@campus.com</a
+          >
+        </p>
+      </div>
     </div>
 
     <!-- Settings -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Settings</h3>
-            <a href="#" class="text-blue-500 hover:underline">Account Settings</a>
-            <a href="#" class="ml-4 text-blue-500 hover:underline">Language & Accessibility</a>
-        </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="mb-4 text-xl font-semibold">Settings</h3>
+        <a href="#" class="text-blue-500 hover:underline">Account Settings</a>
+        <a href="#" class="ml-4 text-blue-500 hover:underline"
+          >Language & Accessibility</a
+        >
+      </div>
     </div>
 
     <!-- Feedback -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Feedback</h3>
-            <form method="post" action="submit_feedback.php">
-                <textarea name="feedback" class="w-full p-2 mb-4 border rounded" placeholder="Provide your feedback here..."></textarea>
-                <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Submit</button>
-            </form>
-        </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="mb-4 text-xl font-semibold">Feedback</h3>
+        <form method="post" action="submit_feedback.php">
+          <textarea
+            name="feedback"
+            class="w-full p-2 mb-4 border rounded"
+            placeholder="Provide your feedback here..."
+          ></textarea>
+          <button
+            type="submit"
+            class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
 
     <!-- Announcements -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Campus Announcements</h3>
-            <ul>
-                <?php foreach ($student_data['announcements'] as $announcement): ?>
-                <li class="mb-2"><?= htmlspecialchars($announcement)?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="mb-4 text-xl font-semibold">Campus Announcements</h3>
+        <ul>
+          <?php foreach ($student_data['announcements'] as $announcement): ?>
+          <li class="mb-2"><?= htmlspecialchars($announcement)?></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
     </div>
     <!-- fetch script -->
-     <!-- TODO 43 : HAVE THIS ON ITS OWN SCRIPT FILE -->
-      <script>
+    <!-- TODO 43 : HAVE THIS ON ITS OWN SCRIPT FILE -->
+    <script>
+      const studentNumber = document.getElementById("student-number");
+      const studentEmail = document.getElementById("student-email");
 
-        const studentNumber = document.getElementById('student-number')
-        const studentEmail = document.getElementById('student-email');
+      function fetchPractice() {
+        try {
+          fetch(`http://localhost:3000/user`)
+            .then((res) =>
+              res.json({
+                message: "fucking hell",
+              })
+            )
+            .then((d) => {
+              // console.log(d),
+              // add to localStorage
+              const currentUser = JSON.stringify(d);
+              localStorage.setItem("currentUser", currentUser);
+              //testing to retrived that fuc,k,
+              console.log("the next log is the retrieved fucker");
+              console.log(retrivedFucker);
+              console.log(
+                `retrievedFucker's name : ${retrivedFucker["firstName"]}`
+              );
+              console.log(
+                `Retrieved Fucker's student number is : ${retrivedFucker["studentNumber"]}`
+              );
+            });
+        } catch (error) {
+          console.error(`An error occured ${error}`);
+        }
+      }
+      fetchPractice();
 
-function fetchPractice(){
-try{
-    fetch(`http://localhost:3000/user`)
-    .then(
-        res => res.json({
-            message : 'fucking hell'
-        })
-    )
-    .then(d => {
-        // console.log(d),
-        // add to localStorage
-       const currentUser = JSON.stringify(d)
-       localStorage.setItem('currentUser', currentUser);
-       //testing to retrived that fuc,k,
-       console.log('the next log is the retrieved fucker')
-       console.log(retrivedFucker)
-       console.log(`retrievedFucker's name : ${retrivedFucker['firstName']}`)
-       console.log(`Retrieved Fucker's student number is : ${retrivedFucker['studentNumber']}`)
-    })
+      const retrivedFucker = JSON.parse(localStorage.getItem("currentUser"));
 
-}catch(error){
-    console.error(`An error occured ${error}`)
-}
-
-}
-fetchPractice()
-
-const retrivedFucker = JSON.parse(localStorage.getItem('currentUser'));
-
-            studentNumber.innerText += retrivedFucker['studentNumber']
-            studentEmail.innerText += retrivedFucker['email']
-
-      </script>
-</body>
-
+      studentNumber.innerText += retrivedFucker["studentNumber"];
+      studentEmail.innerText += retrivedFucker["email"];
+    </script>
+  </body>
 </html>

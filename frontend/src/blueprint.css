@@ -1,5 +1,7 @@
 * {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
   background-color: #f0f0f0;
 }
 
@@ -12,8 +14,20 @@ body {
   height: 100vh;
 }
 
-.building {
-  width: 800px;
+.ITB {
+  max-width: 100%;
+  overflow: hidden;
+  width: 1000px;
+  border: 2px solid #333;
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ITNB {
+  max-width: 100%;
+  overflow: hidden;
+  width: 1000px;
   border: 2px solid #333;
   background-color: #fff;
   padding: 2rem;
@@ -43,7 +57,6 @@ body {
   border: 1px solid #b2bec3;
   text-align: center;
   padding: 20px;
-  font-size: 16px;
 }
 
 .staircase {
@@ -54,19 +67,37 @@ body {
   padding: 20px;
   font-size: 14px;
   color: white;
-  font-weight: bold;
 }
 
+#stair1 {
+  background-color: #680722;
+  border: 1px solid #f5c23e;
+  color: white;
+  padding-top: 20px;
+}
+
+#stair2 {
+  background-color: #680722;
+  border: 1px solid #f5c23e;
+  color: white;
+  padding-top: 20px;
+}
+
+#stair3 {
+  background-color: #680722;
+  border: 1px solid #f5c23e;
+  color: white;
+  padding-top: 20px;
+}
 /* Styling for each room */
 .room {
-  background-color: #ffeaa7;
+  background-color: #fbff00;
 }
 
 .bits_office {
   background-color: #0a6807;
   border: 1px solid #f5c23e;
   color: white;
-  font-weight: bold;
   padding-top: 20px;
 }
 
@@ -74,5 +105,21 @@ body {
   background-color: #f30909;
   border: 1px solid #0a6807;
   color: white;
+  padding-top: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.balcony {
+  background-color: #f7f9fb;
+  border: 1px solid #0a6807;
+  color: black;
+  padding: 20px;
+}
+
+.cr {
+  background-color: #ffffff;
+  border: 1px solid #f5c23e;
+  color: rgb(0, 0, 0);
   padding: 20px;
 }
