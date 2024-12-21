@@ -18,7 +18,7 @@
                     <h2 class="text-2xl font-semibold">Welcome, <span id="student-name">Student</span></h2>
                     <p id="student-number">Student Number:</p>
                     <p id="student-email">Email:</p>
-                    <p id="serial">Serial:</p>
+                    <p id="serial"></p>
                 </div>
                 <a href="#" class="ml-auto text-blue-500 hover:underline">Edit Profile</a>
             </div>
@@ -165,7 +165,7 @@
             const startTime = document.getElementById('start-time').value;
             const endTime = document.getElementById('end-time').value;
             // a shitty way to get the value
-            const db_id = '6742ed2c8664aa2559d06d73'
+            const db_id = document.getElementById('serial').textContent.trim();
 
             const newSubject = {
                 name: subjectName,

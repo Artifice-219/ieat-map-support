@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const Student = require("./backend/model/studentModel.js");
 const conn = require('./backend/config/dbconn.js')
 const saveStudent = require('./backend/controller/database/saveStudent.js')
-const updateStudent_Subject = require('./backend/controller/database/updateSubject.js');
+const addSubject = require('./backend/controller/database/addSubject.js');
 const { default: mongoose } = require("mongoose");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -105,7 +105,7 @@ app.get('/user', async (req, res ) => {
         };
 
         res.send(studentFound);
-        console.error(email)
+        console.error(`Currently logged in ${email}`)
 
       }catch(error){
         console.error(`An error occured because you suck as a programmer ${error}`)
@@ -120,26 +120,28 @@ app.post('/add-subject/:db_id', async (req, res) => {
   const { db_id } = req.params;
   const { name, instructor, schedule, startTime, endTime, days } = req.body;
 
-  const subject_name = name;
-  const studentDb_id = db_id
   conn();
 
-  const updated_data = {
-    schedule: {
-      [subject_name]: {
-        days: days,
-        startTime: startTime,
-        endTime: endTime
-      }
-    }
-  };
-  
-  updateStudent_Subject(studentDb_id, subject_name, updated_data);
+  try{
+    await  addSubject(db_id, {
+      name : name,
+      instructor : instructor,
+      days : days,
+      startTime : startTime,
+      endTime : endTime
+    })
 
-  res.json({
-    message : "okay"
-  })
+    res.json({
+      message : 'Subject added succesfully'
+    });
 
+  }catch(e){
+    console.error('Error adding a subject', e);
+    console.log(`db_id ${db_id}`)
+    res.status(500).json({
+      message : 'Failed to add a student'
+    })
+  }
 })
 // keep this at the last line
 module.exports = app;
