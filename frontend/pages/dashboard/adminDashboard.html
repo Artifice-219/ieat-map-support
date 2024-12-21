@@ -96,6 +96,22 @@
                 </div>
             </section>
 
+            <div class="overflow-x-auto bg-gray-900 p-4 rounded shadow">
+                <h3 class="text-xl font-semibold mb-4">Student Records</h3>
+                <table class="min-w-full table-auto text-sm">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2 text-left">Student  ID</th>
+                            <th class="px-4 py-2 text-left"> Name</th>, ,
+                            <th class="px-4 py-2 text-left">Availability</th>
+                        </tr>
+                    </thead>
+                    <tbody id="room-table-body">
+                        <!-- Rows will be populated here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
             <!-- Schedule Management -->
             <section id="schedules" class="mt-10">
                 <h2 class="mb-4 text-2xl font-bold">Schedule Management</h2>
@@ -118,5 +134,33 @@
             <!-- More Sections (System Logs, Notifications, Reports, etc.) can be added similarly -->
         </div>
     </div>
+
+    <script>
+         // Example function to fetch room data and populate the table
+         async function fetchRoomData() {
+            // Replace this with an actual API call to your database
+            const roomData = [
+                { id: 1, name: 'Room 101', type: 'Conference', available: 'Yes' },
+                { id: 2, name: 'Room 102', type: 'Meeting', available: 'No' },
+                { id: 3, name: 'Room 103', type: 'Study', available: 'Yes' },
+                { id: 4, name: 'Room 104', type: 'Lecture', available: 'No' }
+            ];
+
+            const tableBody = document.getElementById('room-table-body');
+            roomData.forEach(room => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-4 py-2">${room.id}</td>
+                    <td class="px-4 py-2">${room.name}</td>
+                    <td class="px-4 py-2">${room.type}</td>
+                    <td class="px-4 py-2">${room.available}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call the function to populate the table when the page loads
+        window.onload = fetchRoomData;
+    </script>
 </body>
 </html>
