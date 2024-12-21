@@ -1,289 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body style="background-color: #4f0007;">
+  <body style="background-color: #4f0007">
     <!-- Welcome Message & Profile Summary -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <div class="flex items-center space-x-4">
-                <img src="" alt="Profile Picture" id="profile-picture" class="w-16 h-16 rounded-full">
-                <div>
-                    <h2 class="text-2xl font-semibold">Welcome, <span id="student-name">Student</span></h2>
-                    <p id="student-number">Student Number:</p>
-                    <p id="student-email">Email:</p>
-                    <p id="serial"></p>
-                </div>
-                <a href="#" class="ml-auto text-blue-500 hover:underline">Edit Profile</a>
-            </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <div class="flex items-center space-x-4">
+          <img
+            src=""
+            alt="Profile Picture"
+            id="profile-picture"
+            class="w-16 h-16 rounded-full"
+          />
+          <div>
+            <h2 class="text-2xl font-semibold">
+              Welcome, <span id="student-name">Student</span>
+            </h2>
+            <p id="student-number">Student Number:</p>
+            <p id="student-email">Email:</p>
+            <p id="serial"></p>
+          </div>
+          <a href="#" class="ml-auto text-blue-500 hover:underline"
+            >Edit Profile</a
+          >
         </div>
+      </div>
     </div>
-    
-    <!-- Room Finder -->  
+
+    <!-- Room Finder -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Room Finder</h3>
-            <input type="text" class="w-full p-2 mb-4 border rounded" placeholder="Search for rooms or buildings...">
-            <div class="mb-4 bg-gray-300 h-96">
-                <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.4998337133607!2d120.95077826108097!3d15.075756365205669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33970309be916ca3%3A0xbcb6761ad07049e5!2sBulacan%20Agricultural%20State%20College%20Business%20Center!5e0!3m2!1sen!2sph!4v1725900214027!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold">Real-Time Room Availability</h4>
-                <p class="text-gray-500">Room ITNB 101: Available now</p>
-                <p class="text-gray-500">Room ITNB 103: Booked until 2:00 PM</p>
-            </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="mb-4 text-xl font-semibold">Room Finder</h3>
+        <input
+          type="text"
+          class="w-full p-2 mb-4 border rounded"
+          placeholder="Search for rooms or buildings..."
+        />
+        <div class="mb-4 bg-gray-300 h-96">
+          <iframe
+            class="w-full h-full"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.4998337133607!2d120.95077826108097!3d15.075756365205669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33970309be916ca3%3A0xbcb6761ad07049e5!2sBulacan%20Agricultural%20State%20College%20Business%20Center!5e0!3m2!1sen!2sph!4v1725900214027!5m2!1sen!2sph"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
+        <div>
+          <h4 class="text-lg font-semibold">Real-Time Room Availability</h4>
+          <p class="text-gray-500">Room ITNB 101: Available now</p>
+          <p class="text-gray-500">Room ITNB 103: Booked until 2:00 PM</p>
+          <button
+            style="
+              background-color: #970000;
+              color: white;
+              border: none;
+              padding: 10px 20px;
+              font-size: 16px;
+              cursor: pointer;
+              border-radius: 5px;
+              position: relative;
+              left: 1367px;
+              bottom: 45px;
+            "
+            onmouseover="this.style.backgroundColor='#560101';"
+            onmouseout="this.style.backgroundColor='#970000';"
+            onclick="window.location.href='ieat-map-support/frontend/pages/blueprint';"
+          >
+            IT Map
+          </button>
+        </div>
+      </div>
     </div>
-    
-       <!-- Grid Layout for Add Subject Interface and Your Schedule -->
-<div class="container p-4 mx-auto">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+
+    <!-- Grid Layout for Add Subject Interface and Your Schedule -->
+    <div class="container p-4 mx-auto">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <!-- Add Subject Interface -->
         <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Add a Subject</h3>
-            <form id="add-subject-form">
-                <div class="mb-4">
-                    <label for="subject-name" class="block mb-2 text-sm font-medium">Subject Name</label>
-                    <input type="text" id="subject-name" name="subjectName" class="w-full p-2 border rounded" placeholder="Enter subject name" required>
-                </div>
-                <div class="mb-4">
-                    <label for="subject-instructor" class="block mb-2 text-sm font-medium">Instructor</label>
-                    <input type="text" id="subject-instructor" name="subjectInstructor" class="w-full p-2 border rounded" placeholder="Enter instructor name" required>
-                </div>
-                <div class="mb-4">
-                    <label for="subject-day" class="block mb-2 text-sm font-medium">Days of the Week</label>
-                    <input type="text" id="subject-day" name="subjectDay" class="w-full p-2 border rounded" placeholder="ex. Monday, Wednesday, Friday" required>
-                </div>
-                <div class="mb-4">
-                    <label for="start-time" class="block mb-2 text-sm font-medium">Start Time</label>
-                    <input type="time" id="start-time" name="startTime" class="w-full p-2 border rounded" required>
-                </div>
-                <div class="mb-4">
-                    <label for="end-time" class="block mb-2 text-sm font-medium">End Time</label>
-                    <input type="time" id="end-time" name="endTime" class="w-full p-2 border rounded" required>
-                </div>
-                <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Add Subject</button>
-            </form>
+          <h3 class="mb-4 text-xl font-semibold">Add a Subject</h3>
+          <form id="add-subject-form">
+            <div class="mb-4">
+              <label for="subject-name" class="block mb-2 text-sm font-medium"
+                >Subject Name</label
+              >
+              <input
+                type="text"
+                id="subject-name"
+                name="subjectName"
+                class="w-full p-2 border rounded"
+                placeholder="Enter subject name"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="subject-instructor"
+                class="block mb-2 text-sm font-medium"
+                >Instructor</label
+              >
+              <input
+                type="text"
+                id="subject-instructor"
+                name="subjectInstructor"
+                class="w-full p-2 border rounded"
+                placeholder="Enter instructor name"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="subject-day" class="block mb-2 text-sm font-medium"
+                >Days of the Week</label
+              >
+              <input
+                type="text"
+                id="subject-day"
+                name="subjectDay"
+                class="w-full p-2 border rounded"
+                placeholder="ex. Monday, Wednesday, Friday"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="start-time" class="block mb-2 text-sm font-medium"
+                >Start Time</label
+              >
+              <input
+                type="time"
+                id="start-time"
+                name="startTime"
+                class="w-full p-2 border rounded"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="end-time" class="block mb-2 text-sm font-medium"
+                >End Time</label
+              >
+              <input
+                type="time"
+                id="end-time"
+                name="endTime"
+                class="w-full p-2 border rounded"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+            >
+              Add Subject
+            </button>
+          </form>
         </div>
 
         <!-- Your Schedule -->
         <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Your Schedule</h3>
-            <p id="current-time" class="mb-4 text-xl font-semibold"> Current Time : </p>
-            <table class="w-full border border-collapse border-gray-300 table-auto">
-                <thead>
-                    <tr>
-                        <th class="px-4 py-2 bg-gray-100 border">Class</th>
-                        <th class="px-4 py-2 bg-gray-100 border">Instructor</th>
-                        <th class="px-4 py-2 bg-gray-100 border">Days</th>
-                        <th class="px-4 py-2 bg-gray-100 border">Start Time</th>
-                        <th class="px-4 py-2 bg-gray-100 border">End Time</th>
-                    </tr>
-                </thead>
-                <tbody id="schedule-table">
-                    <!-- Dynamically filled rows -->
-                    <tr>
-                        <td colspan="5" class="px-4 py-2 text-center text-gray-500">No schedule added.</td>
-                    </tr>
-                </tbody>
-            </table>
+          <h3 class="mb-4 text-xl font-semibold">Your Schedule</h3>
+          <p id="current-time" class="mb-4 text-xl font-semibold">
+            Current Time :
+          </p>
+          <table
+            class="w-full border border-collapse border-gray-300 table-auto"
+          >
+            <thead>
+              <tr>
+                <th class="px-4 py-2 bg-gray-100 border">Class</th>
+                <th class="px-4 py-2 bg-gray-100 border">Instructor</th>
+                <th class="px-4 py-2 bg-gray-100 border">Days</th>
+                <th class="px-4 py-2 bg-gray-100 border">Start Time</th>
+                <th class="px-4 py-2 bg-gray-100 border">End Time</th>
+              </tr>
+            </thead>
+            <tbody id="schedule-table">
+              <!-- Dynamically filled rows -->
+              <tr>
+                <td colspan="5" class="px-4 py-2 text-center text-gray-500">
+                  No schedule added.
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
-</div>
-    
-<!-- Grid Layout for Notifications, Help, Announcements, and Settings -->
-<div class="container p-4 mx-auto">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+
+    <!-- Grid Layout for Notifications, Help, Announcements, and Settings -->
+    <div class="container p-4 mx-auto">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <!-- Row 1: Notifications and Campus Announcements -->
         <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold">Notifications</h3>
-            <ul>
-                <li>New grades available for Physics 101.</li>
-                <li>Advising session scheduled for Dec 8th.</li>
-            </ul>
+          <h3 class="text-xl font-semibold">Notifications</h3>
+          <ul>
+            <li>New grades available for Physics 101.</li>
+            <li>Advising session scheduled for Dec 8th.</li>
+          </ul>
         </div>
 
         <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold">Campus Announcements</h3>
-            <p>Semester begins on Jan 10th.</p>
-            <p>Library hours extended to 10 PM.</p>
+          <h3 class="text-xl font-semibold">Campus Announcements</h3>
+          <p>Semester begins on Jan 10th.</p>
+          <p>Library hours extended to 10 PM.</p>
         </div>
 
         <!-- Row 2: Settings and Help & Support -->
         <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Settings</h3>
-            <a href="#" class="text-blue-500 hover:underline">Account Settings</a>
-            <a href="#" class="ml-4 text-blue-500 hover:underline">Language & Accessibility</a>
+          <h3 class="mb-4 text-xl font-semibold">Settings</h3>
+          <a href="#" class="text-blue-500 hover:underline">Account Settings</a>
+          <a href="#" class="ml-4 text-blue-500 hover:underline"
+            >Language & Accessibility</a
+          >
         </div>
 
         <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold">Help & Support</h3>
-            <a href="#" class="text-blue-500 hover:underline">Help Center</a>
-            <p>Contact us at: <a href="mailto:support@campus.com" class="text-blue-500 hover:underline">support@campus.com</a></p>
+          <h3 class="text-xl font-semibold">Help & Support</h3>
+          <a href="#" class="text-blue-500 hover:underline">Help Center</a>
+          <p>
+            Contact us at:
+            <a
+              href="mailto:support@campus.com"
+              class="text-blue-500 hover:underline"
+              >support@campus.com</a
+            >
+          </p>
         </div>
+      </div>
     </div>
-</div>
 
     <!-- Feedback -->
     <div class="container p-4 mx-auto">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold">Feedback</h3>
-            <form method="post" action="submit_feedback.php">
-                <textarea name="feedback" class="w-full p-2 mb-4 border rounded" placeholder="Provide your feedback here..."></textarea>
-                <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Submit</button>
-            </form>
-        </div>
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="mb-4 text-xl font-semibold">Feedback</h3>
+        <form method="post" action="submit_feedback.php">
+          <textarea
+            name="feedback"
+            class="w-full p-2 mb-4 border rounded"
+            placeholder="Provide your feedback here..."
+          ></textarea>
+          <button
+            type="submit"
+            class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
 
     <script>
-        // will get the current time
-        function getTime(){
-            const currentTime = new Date();
-            let hours = currentTime.getHours();
-            let minutes = currentTime.getMinutes();
-            let timeFormat = hours >= 12 ? 'PM' : 'AM';
+      // will get the current time
+      function getTime() {
+        const currentTime = new Date();
+        let hours = currentTime.getHours();
+        let minutes = currentTime.getMinutes();
+        let timeFormat = hours >= 12 ? "PM" : "AM";
 
-            hours = hours % 12;
-            hours = hours ? hours : 12 ; // always loops back to '12'
+        hours = hours % 12;
+        hours = hours ? hours : 12; // always loops back to '12'
 
-            const now = `${hours}:${minutes} ${timeFormat}`;
+        const now = `${hours}:${minutes} ${timeFormat}`;
 
-            return now
-        
+        return now;
+      }
+
+      const currentTime = document.getElementById("current-time");
+      currentTime.textContent += getTime();
+
+      function convertTo24Hour(timeStr) {
+        let [time, modifier] = timeStr.split(" ");
+        let [hours, minutes] = time.split(":");
+        if (hours === "12") {
+          hours = modifier === "AM" ? "00" : "12";
+        } else {
+          hours = modifier === "PM" ? String(parseInt(hours, 10) + 12) : hours;
         }
+        return `${hours}:${minutes}`;
+      }
 
+      // Format time back to 12-hour format
+      function formatTime(time) {
+        const [hours, minutes] = time.split(":");
+        const hour = parseInt(hours, 10);
+        const modifier = hour >= 12 ? "PM" : "AM";
+        const formattedHour = hour % 12 || 12;
+        return `${formattedHour}:${minutes} ${modifier}`;
+      }
 
-        const currentTime = document.getElementById('current-time')
-        currentTime.textContent += getTime()
-
-            function convertTo24Hour(timeStr) {
-            let [time, modifier] = timeStr.split(' ');
-            let [hours, minutes] = time.split(':');
-            if (hours === '12') {
-                hours = modifier === 'AM' ? '00' : '12';
-            } else {
-                hours = modifier === 'PM' ? String(parseInt(hours, 10) + 12) : hours;
-            }
-            return `${hours}:${minutes}`;
-        }
-
-          // Format time back to 12-hour format
-          function formatTime(time) {
-            const [hours, minutes] = time.split(':');
-            const hour = parseInt(hours, 10);
-            const modifier = hour >= 12 ? 'PM' : 'AM';
-            const formattedHour = hour % 12 || 12;
-            return `${formattedHour}:${minutes} ${modifier}`;
-        }
-
-         // Sort subjects by start time
-         function sortSubjects(subjects) {
-            return subjects.sort((a, b) => {
-                const aTime = convertTo24Hour(a.schedule.startTime);
-                const bTime = convertTo24Hour(b.schedule.startTime);
-                return aTime.localeCompare(bTime);
-            });
-        }
-
-
-        // Fetch user profile data from API
-        function fetchProfile() {
-            fetch('http://localhost:3000/user')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('profile-picture').src = data.profilePicture || '';
-                    document.getElementById('student-name').textContent = data.firstName || 'Student';
-                    document.getElementById('student-number').textContent += data.studentNumber || 'N/A';
-                    document.getElementById('student-email').textContent += data.email || 'N/A';
-                    document.getElementById('serial').textContent += data._id;
-                })
-                .catch(error => console.error('Error fetching user data:', error));
-        }
-
-        // Handle adding subjects
-        const addSubjectForm = document.getElementById('add-subject-form');
-        addSubjectForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const subjectName = document.getElementById('subject-name').value;
-            const instructor = document.getElementById('subject-instructor').value;
-            const subjectDay = document.getElementById('subject-day').value;
-            const startTime = document.getElementById('start-time').value;
-            const endTime = document.getElementById('end-time').value;
-            // a shitty way to get the value
-            const db_id = document.getElementById('serial').textContent.trim();
-
-            const newSubject = {
-                name: subjectName,
-                instructor: instructor,
-                schedule: {
-                    days: subjectDay,
-                    startTime: startTime,
-                    endTime: endTime
-                }
-            };
-
-            try{
-                // trying to connect this to the backend
-                const response = await fetch(`http://localhost:3000/add-subject/${db_id}`, {
-                    method : 'POST',
-                    headers: {
-                        'Content-type' : 'application/json',
-
-                    },
-                    body : JSON.stringify(newSubject),
-                });
-                // lipat existing logic here
-                if(response.ok){
-                    const result = await response.json();
-                    alert('Subject added successfully!');
-                    let subjects = JSON.parse(localStorage.getItem('subjects')) || [];
-                    subjects.push(newSubject);
-                    subjects = sortSubjects(subjects);
-                    localStorage.setItem('subjects', JSON.stringify(subjects));
-                    addSubjectForm.reset();
-                    displaySchedule();
-                }else{
-                    throw new Error(`Failed to add subject : ${response.statusText}`);
-                }
-                
-            }
-            catch(e){
-                console.error('Error adding a new subject:', error);
-            }
+      // Sort subjects by start time
+      function sortSubjects(subjects) {
+        return subjects.sort((a, b) => {
+          const aTime = convertTo24Hour(a.schedule.startTime);
+          const bTime = convertTo24Hour(b.schedule.startTime);
+          return aTime.localeCompare(bTime);
         });
+      }
 
-        // Display schedule from localStorage
-        function displaySchedule() {
-            const scheduleTable = document.getElementById('schedule-table');
-            scheduleTable.innerHTML = '';
-            const subjects = JSON.parse(localStorage.getItem('subjects')) || [];
-            subjects.forEach(subject => {
-                const row = `<tr>
+      // Fetch user profile data from API
+      function fetchProfile() {
+        fetch("http://localhost:3000/user")
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("profile-picture").src =
+              data.profilePicture || "";
+            document.getElementById("student-name").textContent =
+              data.firstName || "Student";
+            document.getElementById("student-number").textContent +=
+              data.studentNumber || "N/A";
+            document.getElementById("student-email").textContent +=
+              data.email || "N/A";
+            document.getElementById("serial").textContent += data._id;
+          })
+          .catch((error) => console.error("Error fetching user data:", error));
+      }
+
+      // Handle adding subjects
+      const addSubjectForm = document.getElementById("add-subject-form");
+      addSubjectForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const subjectName = document.getElementById("subject-name").value;
+        const instructor = document.getElementById("subject-instructor").value;
+        const subjectDay = document.getElementById("subject-day").value;
+        const startTime = document.getElementById("start-time").value;
+        const endTime = document.getElementById("end-time").value;
+        // a shitty way to get the value
+        const db_id = document.getElementById("serial").textContent.trim();
+
+        const newSubject = {
+          name: subjectName,
+          instructor: instructor,
+          schedule: {
+            days: subjectDay,
+            startTime: startTime,
+            endTime: endTime,
+          },
+        };
+
+        try {
+          // trying to connect this to the backend
+          const response = await fetch(
+            `http://localhost:3000/add-subject/${db_id}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
+              },
+              body: JSON.stringify(newSubject),
+            }
+          );
+          // lipat existing logic here
+          if (response.ok) {
+            const result = await response.json();
+            alert("Subject added successfully!");
+            let subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+            subjects.push(newSubject);
+            subjects = sortSubjects(subjects);
+            localStorage.setItem("subjects", JSON.stringify(subjects));
+            addSubjectForm.reset();
+            displaySchedule();
+          } else {
+            throw new Error(`Failed to add subject : ${response.statusText}`);
+          }
+        } catch (e) {
+          console.error("Error adding a new subject:", error);
+        }
+      });
+
+      // Display schedule from localStorage
+      function displaySchedule() {
+        const scheduleTable = document.getElementById("schedule-table");
+        scheduleTable.innerHTML = "";
+        const subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+        subjects.forEach((subject) => {
+          const row = `<tr>
                     <td class="px-4 py-2 border">${subject.name}</td>
                     <td class="px-4 py-2 border">${subject.instructor}</td>
                     <td class="px-4 py-2 border">${subject.schedule.days}</td>
                     <td class="px-4 py-2 border">${subject.schedule.startTime}</td>
                     <td class="px-4 py-2 border">${subject.schedule.endTime}</td>
                 </tr>`;
-                scheduleTable.innerHTML += row;
-            });
+          scheduleTable.innerHTML += row;
+        });
 
-            if (subjects.length === 0) {
-                scheduleTable.innerHTML = `<tr><td colspan="5" class="px-4 py-2 text-center text-gray-500">No schedule added.</td></tr>`;
-            }
+        if (subjects.length === 0) {
+          scheduleTable.innerHTML = `<tr><td colspan="5" class="px-4 py-2 text-center text-gray-500">No schedule added.</td></tr>`;
         }
+      }
 
-        function displaySchedule() {
-            const scheduleTable = document.getElementById('schedule-table');
-            const subjects = JSON.parse(localStorage.getItem('subjects')) || [];
-            scheduleTable.innerHTML = subjects.length
-                ? subjects.map(subject => `
+      function displaySchedule() {
+        const scheduleTable = document.getElementById("schedule-table");
+        const subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+        scheduleTable.innerHTML = subjects.length
+          ? subjects
+              .map(
+                (subject) => `
                     <tr>
                         <td>${subject.name}</td>
                         <td>${subject.instructor}</td>
@@ -291,14 +408,15 @@
                         <td>${subject.schedule.startTime}</td>
                         <td>${subject.schedule.endTime}</td>
                     </tr>
-                `).join('')
-                : '<tr><td colspan="5">No schedule added.</td></tr>';
-        }
+                `
+              )
+              .join("")
+          : '<tr><td colspan="5">No schedule added.</td></tr>';
+      }
 
-        // Initialize
-        fetchProfile();
-        displaySchedule();
+      // Initialize
+      fetchProfile();
+      displaySchedule();
     </script>
-</body>
-
+  </body>
 </html>
