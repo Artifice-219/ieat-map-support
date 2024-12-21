@@ -75,6 +75,7 @@
         <!-- Your Schedule -->
         <div class="p-6 bg-white rounded-lg shadow-lg">
             <h3 class="mb-4 text-xl font-semibold">Your Schedule</h3>
+            <p id="current-time" class="mb-4 text-xl font-semibold"> Current Time : </p>
             <table class="w-full border border-collapse border-gray-300 table-auto">
                 <thead>
                     <tr>
@@ -141,6 +142,26 @@
     </div>
 
     <script>
+        // will get the current time
+        function getTime(){
+            const currentTime = new Date();
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            let timeFormat = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12 ; // always loops back to '12'
+
+            const now = `${hours}:${minutes} ${timeFormat}`;
+
+            return now
+        
+        }
+
+
+        const currentTime = document.getElementById('current-time')
+        currentTime.textContent += getTime()
+
             function convertTo24Hour(timeStr) {
             let [time, modifier] = timeStr.split(' ');
             let [hours, minutes] = time.split(':');
